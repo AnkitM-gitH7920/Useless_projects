@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="style.css">
+		<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+		<title>Password generator</title>
+	</head>
+	<body class="displayFlex">
+		<div class="container displayFlex">
+			<div class="Copied" id="copyPopUp">
+				<p>Password copied successfully</p>
+		    </div>
+			<div class="top">
+				<p>Password Generator</p>
+			</div>
+			<div class="middle displayFlex">
+				<input type="text" id="passwordField" placeholder="Your password here...">
+				<i class='bx bx-copy-alt' id="copyPassIcon"></i>
+				<i class='bx bx-reset' id="resetPassFieldIcon"></i>
+			</div>
+			<div class="bottom displayFlex">
+				<div class="titles">
+					<p>Weak Password</p>
+					<p>Moderate Password</p>
+					<p>Strong Password</p>
+					<p>Funny Password</p>
+				</div>
+				<div class="checkBoxes displayFlex">
+					<input type="radio" name="sameBehavior" id="radioWeak" class="radios">
+					<input type="radio" name="sameBehavior" id="radioModerate" class="radios">
+					<input type="radio" name="sameBehavior" id="radioStrong" class="radios">
+					<input type="radio" name="sameBehavior" id="radioFunny" class="radios">
+				</div>
+			</div>
+			<button id="generateBtn" onclick="generatePassFunc()">Generate Password</button>
+		</div>
+		<script src="script.js"></script>
+	</body>
+</html>

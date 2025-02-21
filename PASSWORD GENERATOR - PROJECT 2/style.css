@@ -1,0 +1,126 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	color: white;
+	caret-color: transparent;
+}
+body{
+	flex-direction: column;
+	font-family: "Ubuntu";
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+/*defining popups*/
+.Copied{
+	display: none;
+	position: absolute;
+	top: 135px;
+	background-color: #292e30;
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.7);
+	padding: 7px;
+	border-radius: 9px;
+	margin-bottom: 10px;
+	animation: appear 0.5 ease;
+}
+/*defining popups*/
+.displayFlex{
+	display: flex;
+}
+.container{
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.8);
+	width: 270px;
+	flex-direction: column;
+	align-items: center;
+	background-color: #292e30;
+	border-radius: 7px;
+	padding: 0px 0px 15px 0px ;
+}
+.top{
+	min-width: 100%;
+	border-bottom: 1px solid gray;
+	border-radius: 7px;
+	text-align:center;
+	padding: 5px 0px 5px 0px ;
+	font-size: 17px;
+	box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.middle{
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
+#passwordField{
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+	color: white;
+	margin: 20px 0px 0px 0px ;
+	border: none;
+	outline: none;
+	background-color: #474f52;
+	border-radius: 7px;
+	padding: 5px 10px 5px 10px ;
+	pointer-events: none;
+}
+#passwordField::placeholder{
+	color: #a7aeb0;
+}
+
+.bx-copy-alt,.bx-reset{
+	font-size: 14px;
+	padding: 4px;
+	transition: background-color 0.3s ease 0s;
+	border-radius: 7px;
+	cursor: pointer;
+}
+.bx-copy-alt{
+	position: relative;
+	top: 9px;
+	right: -5px;
+}
+.bx-reset{
+	position: relative;
+    top: 9px;
+    left: 10px;
+}
+.bx-copy-alt:hover,.bx-reset:hover{
+	background-color: #4f5257;
+}
+
+.bottom{
+	margin-top: 15px;
+	gap: 85px;
+	caret-color: transparent;
+	justify-content: space-around;
+}
+
+.titles>p{
+	margin-bottom: 5px;
+	font-size: 15px;
+}
+.checkBoxes{
+	gap: 9px;
+	flex-direction: column;
+}
+.radios{
+	accent-color: #292e30;
+}
+
+button{
+	font-size: 15px;
+	width: 85%;
+	outline: none;
+	border:none;
+	border-radius: 10px;
+	background-color: #474f52;
+	padding: 10px;
+	cursor: pointer;
+	margin-top: 10px;
+	box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.5);
+	transition: background-color 0.3s ease 0s;
+}
+button:hover{
+	background-color: #6d7375;
+}
