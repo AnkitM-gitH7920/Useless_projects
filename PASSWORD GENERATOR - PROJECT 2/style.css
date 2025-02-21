@@ -62,7 +62,6 @@ body{
 	background-color: #474f52;
 	border-radius: 7px;
 	padding: 5px 10px 5px 10px ;
-	pointer-events: none;
 }
 #passwordField::placeholder{
 	color: #a7aeb0;

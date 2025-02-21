@@ -43,7 +43,7 @@ class password{
 		passwordField.value = strongPass;
 	}
 	funnyPassClass(){
-		let funnyArray = [
+		const funnyArray = [
 			"password",
 			'ineedapassword',
 			'changeme',
