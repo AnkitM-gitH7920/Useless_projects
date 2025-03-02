@@ -1,0 +1,176 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+:root{
+	--bodybackgroundcolor : #000;
+	--commonGray: rgba(86, 86, 92,0.5);
+	--navbarFontColor:rgb(127, 127, 138);
+	--white:#fff;
+}
+body{
+	font-family: "Ubuntu";
+	background-color: var(--bodybackgroundcolor);
+}
+/*Navabar design*/
+nav{
+	display: flex;
+	align-items: center;
+	padding: 7px 0px 7px 27px;
+	gap: 200px;
+}
+.headComponents1,.headComponents2{
+	display: flex;
+	align-items: center;
+}
+
+/*headComponentsdiv1*/
+.headComponents1{
+	gap: 10px;
+}
+.appLogo{
+	height: 32px ;
+	width: 32px;
+}
+.homeIconBackground{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 11px;
+	border-radius: 200px;
+	margin-left: 20px;
+	background-color: rgba(86, 86, 92,0.4);
+	transition: all 0.3s;
+}
+.homeIconBackground>svg{
+	transform: scale(1.0);
+}
+.stylishInputfield{
+	position: relative;
+}
+.bx-search,.stylishInputfield>input::placeholder{
+	color: rgb(174, 174, 184);
+}
+.bx-search{
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	font-size: 30px;
+	color: var(--navbarFontColor);
+}
+.stylishInputfield>input{
+	color: white;
+	border-radius: 400px;
+	border:none;
+	outline: none;
+	background: var(--commonGray);
+	height: 48px;
+	width: 472px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	font-size: 0.9rem;
+	padding: 0px 0px 0px 55px;
+	transition: all 0.3s ease-in-out ;
+}
+.stylishInputfield>input:focus{
+	box-shadow: 0px 0px 0px 2px white;
+}
+.browseIcon{
+    position: absolute;
+    right: 0;
+    top: 10px;
+    height: 57%;
+    width: 47px;
+    border-left: 1px solid var(--navbarFontColor);
+}
+
+
+/*headcomponentdiv2*/
+.headComponents2{
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+.explorePremium{
+	cursor: pointer;
+	caret-color: transparent;
+	text-align: center;
+    font-size: 14px;
+    font-weight: 800;
+    width: 145px;
+    background-color: white;
+    color: black;
+    border-radius: 800px;
+    padding: 8px 0px;
+    transition: all 0.3s;
+}
+
+.installBox{
+	display: flex;
+	align-items: center;
+	gap: 3px;
+	caret-color: transparent;
+	cursor: pointer;
+}
+.installBox>p,.installBox>i{
+	color: rgb(172, 172, 181);
+}
+.installBox>p{
+	font-size: 14px;
+	font-weight: bolder;
+}
+.installBox>i{
+	font-size: 20px;
+}
+
+.bx-bell{
+	caret-color: transparent;
+	font-size: 20px;
+	cursor: pointer;
+	margin-left: 23px;
+}
+
+.accountIcon{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	font-weight: 400;
+	height: 32px;
+	width: 32px;
+	background-color: #a3457c;
+	border-radius: 1000px;
+	cursor: pointer;
+	margin-left: 20px;
+	box-shadow: 0px 0px 0px 5px rgba(134, 135, 143,0.4);
+	transition: all 0.3s;
+}
+.accountIcon:hover{
+	transform: scale(1.04);
+}
+
+/*hover effects*/
+.appLogo{
+	cursor: pointer;
+}
+.homeIconBackground:hover{
+	cursor: pointer;
+	transform: scale(1.07);
+	background-color: rgba(160, 161, 168,0.3) ;
+}
+.stylishInputfield>input:hover{
+	background-color: rgba(160, 161, 168,0.3);
+}
+.explorePremium:hover{
+	transform: scale(1.03);
+}
+.installBox:hover{
+	transform: scale(1.04);
+}
+.installBox:hover.installBox>p,.installBox:hover.installBox>i{
+	color: white;
+}
+/*Navbar design*/
