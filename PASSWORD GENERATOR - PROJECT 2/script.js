@@ -1,6 +1,6 @@
 const passwordField = document.getElementById('passwordField');
 const copyPassIcon  = document.getElementById('copyPassIcon');
-const radios        = document.querySelectorAll('.radios');
+const radios        = document.querySelectorAll('.input');
 const generateBtn   = document.getElementById('generateBtn');
 const resetPassFieldIcon = document.getElementById('resetPassFieldIcon')
 
