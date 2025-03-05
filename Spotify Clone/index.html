@@ -4,40 +4,35 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-	<link rel="stylesheet" type="text/css" href="navbar.css">
-	<link rel="stylesheet" type="text/css" href="popUps.css">
-	<title>Spotify</title>
+	<link rel="icon" type="image/png" href="assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="utilityClasses.css">
+	<link rel="stylesheet" type="text/css" href="bodyContent.css">
+	<link rel="stylesheet" type="text/css" href="others.css">
+	<link rel="stylesheet" type="text/css" href="imageStyles.css">
+	<title>Spotify - Web Player: Music for everyone</title>
 </head>
-<nav>
-	<div class="headComponents1">
-		<img class="appLogo" src="C:\Users\PC\Desktop\SublimeText\Projects\Spotify Clone\assets\Spotify_Primary_Logo_RGB_White.png">
-	
-	    <div class="homeIconBackground">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="white" stroke="white" stroke-width="2">
-			<path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-5h-4v5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z" stroke-linecap="round" stroke-linejoin="round"/>
-		    </svg>
-		</div>
-		<div class="stylishInputfield">
-			<input type="text" name="" placeholder="What do you want to play?">
-	        <i class='bx bx-search' style='color:#ffffff'  ></i>
-	        <div class="browseIcon"></div>
-		</div>
-	</div>
-	<div class="headComponents2">
-		<div class="explorePremium">
-			<p>Explore Premium</p>
-		</div>
-		<div class="installBox">
-			<i class='bx bx-down-arrow-circle' style='color:#ffffff'  ></i>
-			<p>Install App</p>
-		</div>
-		<i class='bx bx-bell' style='color:#ffffff'  ></i>
-		<div class="accountIcon">
-			<p>A</p>
-		</div>
-	</div>
-</nav>
 <body>
-<script type="" src="script.js"></script>
+<main class="flex">
+	<div class="left alighnCenter flex">
+		<div class="leftTop borderRadius">
+			<div class="leftTopDivContainer flexDirectionColumn">
+				<div class="logoDiv justifyStart alighnCenter">
+					<img class="logoClass" src="assets/Spotifylogo.png" alt="Loading" >
+				</div>
+			    <div class="homeDiv justifyStart alighnCenter">
+			    	<img class="homeClass" src="assets/home.png">
+			    	<p>Home</p>
+			    </div>
+			    <div class="searchDiv justifyStart alighnCenter" style="margin-bottom: 3px;"></div>
+			</div>
+		</div>
+		<div class="leftBottom borderRadius"></div>
+	</div>
+	<div class="right borderRadius">
+		<div class="rightTop borderRadius"></div>
+		<div class="rightBottom borderRadius"></div>
+	</div>
+</main>
 </body>
+<script type="" src="script.js"></script>
 </html>

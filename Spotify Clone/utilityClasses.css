@@ -1,0 +1,30 @@
+.flex{
+	display: flex;
+}
+.flexDirectionColumn{
+	display: flex;
+	flex-direction: column;
+}
+.justifyCenter{
+	display: flex;
+	justify-content: center;
+}
+.alighnCenter{
+	display: flex;
+	align-items: center;
+}
+.completeCenter{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.justifyStart{
+	display: flex;
+	justify-content: flex-start;
+}
+.redBorder{
+	border: 1px solid red;
+}
+.borderRadius{
+	border-radius: 8px;
+}
