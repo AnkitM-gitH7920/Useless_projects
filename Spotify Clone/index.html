@@ -5,10 +5,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="icon" type="image/png" href="assets/favicon.ico">
-	<link rel="stylesheet" type="text/css" href="utilityClasses.css">
-	<link rel="stylesheet" type="text/css" href="bodyContent.css">
-	<link rel="stylesheet" type="text/css" href="others.css">
-	<link rel="stylesheet" type="text/css" href="imageStyles.css">
+	<link rel="stylesheet" type="text/css" href="css/utilityClasses.css">
+	<link rel="stylesheet" type="text/css" href="css/bodyContent.css">
+	<link rel="stylesheet" type="text/css" href="css/others.css">
+	<link rel="stylesheet" type="text/css" href="css/imageStyles.css">
 	<title>Spotify - Web Player: Music for everyone</title>
 </head>
 <body>
@@ -20,19 +20,58 @@
 					<img class="logoClass" src="assets/Spotifylogo.png" alt="Loading" >
 				</div>
 			    <div class="homeDiv justifyStart alighnCenter">
-			    	<img class="homeClass" src="assets/home.png">
+			    	<img class="homeClass" src="assets/home.svg">
 			    	<p>Home</p>
 			    </div>
-			    <div class="searchDiv justifyStart alighnCenter" style="margin-bottom: 3px;"></div>
+			    <div class="searchDiv justifyStart alighnCenter" style="margin-bottom: 3px;">
+			    	<i class='bx bx-search searchClass' style='color:#ffffff'  ></i>
+			    	<p>Search</p>
+			    </div>
 			</div>
 		</div>
-		<div class="leftBottom borderRadius"></div>
+		<div class="leftBottom borderRadius">
+			<div class="leftBottomHeading flex alighnCenter">
+				<img src="assets/playlist.svg">
+				<h2>Your Library</h2>
+			</div>
+			<div class="leftBottom-libraryContent">
+				<div class="song"></div>
+			</div>
+		</div>
 	</div>
-	<div class="right borderRadius">
-		<div class="rightTop borderRadius"></div>
-		<div class="rightBottom borderRadius"></div>
+	<div class="right borderRadius flex">
+		<div class="rightTop borderRadius flex alighnCenter">
+			<div class="rightTop-leftContent">
+				<i class='bx bx-chevron-left' style='color:#ffffff'></i>
+				<i class='bx bx-chevron-right' style='color:#ffffff'></i>
+			</div>
+			<div class="rightTop-rightContent">
+				<button class="signUpBtn">Sign up</button>
+				<button class="logInBtn">Log in</button>
+			</div>
+		</div>
+		<div class="rightBottom borderRadius">
+			<div class="playlistDesign-Heading alighnCenter">
+				<h1>Spotify Playlists</h1>
+				<a href="#">Show all</a>
+			</div>
+			<div class="playlistDesign-songCardContainer flex">
+				<div class="card flexDirectionColumn">
+					<img class="coverImage" src="assets/cover.png">
+					<button class="appearingPlayBtn completeCenter"><img src="assets/play.svg"></button>
+					<h2>Happy Hits!</h2>
+					<p>Hits to boost your mood and fill you with happiness!</p>
+				</div>
+				<div class="card flexDirectionColumn">
+					<img class="coverImage" src="assets/cover.png">
+					<button class="appearingPlayBtn completeCenter"><img src="assets/play.svg"></button>
+					<h2>Happy Hits!</h2>
+					<p>Hits to boost your mood and fill you with happiness!</p>
+				</div>
+			</div>
+		</div>
 	</div>
 </main>
 </body>
-<script type="" src="script.js"></script>
+<script type="" src="js/script.js"></script>
 </html>

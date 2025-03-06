@@ -22,9 +22,6 @@
 	display: flex;
 	justify-content: flex-start;
 }
-.redBorder{
-	border: 1px solid red;
-}
 .borderRadius{
 	border-radius: 8px;
 }

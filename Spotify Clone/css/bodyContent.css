@@ -1,0 +1,122 @@
+main{
+	flex-direction: row;
+}
+div{
+	caret-color: transparent;
+}
+/*left top div content*/
+.left,.right{
+	height: 100vh;
+}
+.left{
+	margin-right: 10px;
+	width: 25%;
+	flex-direction: column;
+	background-color: transparent;
+}
+.leftTop{
+	padding: 10px;
+	margin-bottom: 5px;
+	height: 130px;
+	width: 100%;
+	background-color:#121212;
+}
+.leftTopDivContainer{
+	height: 100%;
+	gap:4px;
+}
+.logoDiv,
+.homeDiv,
+.searchDiv{
+	border-radius: 9px;
+	cursor: pointer;
+	height: 40px;
+	width: 100%;
+	transition: background-color 0.3s;
+}
+.homeDiv:hover,
+.searchDiv:hover{
+	background-color: rgba(107, 108, 115,0.3);
+}
+/*left bottom div content*/
+.leftBottom{
+	height: 85%;
+	width: 100%;
+	background-color: #121212;
+}
+.leftBottomHeading{
+	padding: 20px;
+}
+/*.leftBottom-libraryContent{
+	overflow-y: auto;
+	overflow-x: hidden;
+	width: 100%;
+	border:1px solid red;
+}*/
+/*right content*/
+/*right top content*/
+.rightTop,
+.rightBottom{
+	background-color: #121212;
+}
+.right{
+	flex-direction: column;
+	width: 75%;
+	gap: 10px;
+}
+.rightTop{
+	justify-content: space-between;
+	height: 10%;
+	width: 100%;
+}
+/*right top content*/
+
+/*right bottom content*/
+.rightBottom{
+	overflow-y: auto;
+	height: 90%;
+	width: 100%;
+}
+.playlistDesign-Heading{
+	border-bottom: 1px solid gray;
+	padding: 23px 19px;
+	justify-content: space-between;
+}
+.playlistDesign-Heading>a{
+	color: #b3b3b3;
+	font-weight: 800;
+	text-decoration: none;
+}
+.playlistDesign-Heading>a:hover{
+	text-decoration: underline;
+}
+
+/*song cover design*/
+.playlistDesign-songCardContainer{
+	flex-wrap: wrap;
+	gap: 40px;
+	padding: 20px;
+}
+.card{
+	position: relative;
+	cursor: pointer;
+	overflow: hidden;
+	height: 270px;
+	width: 185px;
+	border-radius: 6px;
+}
+.card:hover{
+	background-color:rgba(64, 62, 62,0.3);
+}
+.card>p,
+.card>h2{
+	margin: 0px 10px 5px 10px;
+}
+
+.card>p{
+	margin-bottom: 7px;
+	font-size: 0.9rem;
+}
+/*song cover design*/
+/*right bottom content*/
+/*right content*/
