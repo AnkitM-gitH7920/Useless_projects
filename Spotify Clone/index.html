@@ -6,8 +6,8 @@
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="icon" type="image/png" href="assets/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="css/utilityClasses.css">
-	<link rel="stylesheet" type="text/css" href="css/bodyContent.css">
-	<link rel="stylesheet" type="text/css" href="css/others.css">
+	<link rel="stylesheet" type="text/css" href="css/bodyLayout.css">
+	<link rel="stylesheet" type="text/css" href="css/basicDesign.css">
 	<link rel="stylesheet" type="text/css" href="css/imageStyles.css">
 	<title>Spotify - Web Player: Music for everyone</title>
 </head>
@@ -34,8 +34,17 @@
 				<img src="assets/playlist.svg">
 				<h2>Your Library</h2>
 			</div>
-			<div class="leftBottom-libraryContent">
-				<div class="song"></div>
+			<div class="leftBottom-libraryContent alighnCenter flexDirectionColumn">
+				<!-- js block -->
+				<div class="song alighnCenter">
+					<img src="assets/music.svg">
+					<div class="songDetails flexDirectionColumn">
+						<div id="songName"><p>Song name</p></div>
+						<div id="artistName"><p>Song artist name</p></div>
+					</div>
+					<i class='bx bx-play-circle' style='color:#ffffff;cursor: pointer;'  ></i>
+				</div>
+				<!-- js block -->
 			</div>
 		</div>
 	</div>
@@ -58,18 +67,32 @@
 			<div class="playlistDesign-songCardContainer flex">
 				<div class="card flexDirectionColumn">
 					<img class="coverImage" src="assets/cover.png">
-					<button class="appearingPlayBtn completeCenter"><img src="assets/play.svg"></button>
+					<button class="appearingPlayBtn completeCenter"><img src="assets/cardPlayButton.svg"></button>
 					<h2>Happy Hits!</h2>
 					<p>Hits to boost your mood and fill you with happiness!</p>
 				</div>
 				<div class="card flexDirectionColumn">
 					<img class="coverImage" src="assets/cover.png">
-					<button class="appearingPlayBtn completeCenter"><img src="assets/play.svg"></button>
+					<button class="appearingPlayBtn completeCenter"><img src="assets/cardPlayButton.svg"></button>
 					<h2>Happy Hits!</h2>
 					<p>Hits to boost your mood and fill you with happiness!</p>
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="songPlayBar completeCenter">
+		<div class="playBar-Left"></div>
+		<div class="playBar-Center flexDirectionColumn alighnCenter">
+			<div class="songButtons alighnCenter">
+			    <img class="prevSongClass" src="assets/prevsong.svg">
+			    <img class="playSongClass" src="assets/playBarSongPlayButton.svg">
+			    <img class="nextSongClass" src="assets/nextsong.svg">
+			</div>
+			<div class="songDurationBar">
+				<!-- <input type="range" name=""> -->
+			</div>
+		</div>
+		<div class="playBar-Right"></div>
 	</div>
 </main>
 </body>

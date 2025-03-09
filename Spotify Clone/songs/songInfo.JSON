@@ -1,0 +1,41 @@
+[
+  { 
+    "name": "Charged Up (Uddna Sapp)",
+    "Artist":"Jxggi",
+    "url": "http://localhost:3000/songs/Charged Up (Uddna Sapp) - Jxggi.mp3" 
+  },
+  {
+    "name":"Gaddi Ch Yaar",
+    "Artist":"Kamal Khaira",
+    "url": "http://localhost:3000/songs/Gaddi Ch Yaar - Kamal Khaira .mp3"
+  },
+  {
+    "name": "Khairiyat (Bonus Track)",
+    "Artist":"Arijit Singh",
+    "url": "http://localhost:3000/songs/Khairiyat (Bonus Track).mp3"
+  },
+  {
+    "name": "Lemonade",
+    "Artist":"Diljit Dosanjh",
+    "url": "http://localhost:3000/songs/Lemonade.mp3"
+  },
+  {
+    "name": "Moon Rise",
+    "Artist":"Guru Randhawa",
+    "url": "http://localhost:3000/songs/Moon_Rise_Guru_Randhawa.mp3"
+  },
+  {
+    "name": "Selfmade",
+    "Artist":"Sidhu Moose Wala",
+    "url": "http://localhost:3000/songs/Selfmade-Chaache Maame - Sidhu Moose Wala.mp3"
+  },
+  {
+    "name": "Sin_Sidhu_Moose_Wala.mp3",
+    "Artist":"Sidhu Moose wala",
+    "url": "http://localhost:3000/songs/Sin_Sidhu_Moose_Wala.mp3" },
+  {
+    "name": "Turbanator - Tarsem Jassar.mp3",
+    "Artist":"Tarsem Jassar",
+    "url": "http://localhost:3000/songs/Turbanator - Tarsem Jassar.mp3"
+  }
+]

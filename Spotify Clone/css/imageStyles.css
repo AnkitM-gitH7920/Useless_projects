@@ -17,6 +17,12 @@
 	width: 30px;
 	margin-right: 10px;
 }
+/*left bottom>song > playicon styles*/
+.song>i{
+	position: absolute;
+	right: 10px;
+	font-size: 1.8rem;
+}
 /*right bottom cover image design*/
 .coverImage{
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
