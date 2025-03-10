@@ -23,12 +23,46 @@ body{
 	height: 10px;
 	background-color: rgba(76, 77, 84);
 }
-/*left bottom song listing designs*/
-.leftBottom{
-	padding: 20px;
-	overflow-y: auto;
-	overflow-x: hidden;
+/*seekbar designs*/
+.seekbar{
+	position: relative;
+	width: 85%;
+	height: 6px;
+	border: 1px solid #595b5e;
+	border-radius: 40px;
+	cursor: pointer;
+	margin: 3px 0px;
+	background-color: #76777a;
 }
+.seekbar:hover{
+	background-color: #1fdf64;
+}
+#songInitialDuration,
+#songCurrentDuration{
+	position: absolute;
+	font-size: 13px;
+}
+#songInitialDuration{
+	bottom: 6px;
+	left: 0px;
+}
+#songCurrentDuration{
+	bottom: 6px;
+	right: 0px;
+}
+.seekbar-Circle{
+	position: absolute;
+	left: 0px; /*we may need to change it to percentage*/
+	top: -8px;
+	height: 20px;
+	width: 20px;
+	border-radius: 70px;
+	background-color: #fff;
+	transition: left 0.5s;
+}
+/*seekbar designs*/
+/*left bottom song listing designs*/
+
 .leftBottom-libraryContent{
 	margin-top: 1.9em;
 	padding: 10px;
@@ -45,7 +79,7 @@ body{
 }
 .songDetails{
 	gap: 3px;
-	width: 170px;
+	width: 165px;
 }
 #songName>p{
 	font-size: 21px;
@@ -62,7 +96,7 @@ body{
 
 /*right top*/
 /*right top buttons and arrows desighn*/
-/*bx-chevrons*/
+/*chevrons*/
 .rightTop-leftContent{
 	margin-left: 1.2em;
 }

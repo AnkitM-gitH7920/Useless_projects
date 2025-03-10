@@ -36,17 +36,22 @@
 			</div>
 			<div class="leftBottom-libraryContent alighnCenter flexDirectionColumn">
 				<!-- js block -->
-				<!-- <div class="song alighnCenter">
-					<img src="assets/music.svg">
-					<div class="songDetails flexDirectionColumn">
-						<div id="songName"><p>Song name</p></div>
-						<div id="artistName"><p>Song artist name</p></div>
-					</div>
-					<i class='bx bx-play-circle' style='color:#ffffff;cursor: pointer;'  ></i>
-				</div> -->
-				<!-- js block -->
-			</div>
-		</div>
+			    <div class="song alighnCenter">
+			        <div class="librarySongs-coverImage">
+			            <img src="${song.song_cover}">
+			        </div>
+			        <div class="songDetails flexDirectionColumn">
+                        <div id="songName"><p>${song.Song_name}</p></div>
+			            <div id="artistName"><p>${song.Artist}</p></div>
+			        </div>
+			        <div class="togglePlayPauseDiv">
+			            <i class='bx bx-play-circle' style='color:#ffffff;cursor: pointer;' song_index="${index}" onclick="playSong()"></i>
+			            <img src="">
+			        </div>
+		        </div>
+		        <!-- js block -->
+		    </div>
+	    </div>
 	</div>
 	<div class="right borderRadius flex">
 		<div class="rightTop borderRadius flex alighnCenter">
@@ -66,13 +71,13 @@
 			</div>
 			<div class="playlistDesign-songCardContainer flex">
 				<div class="card flexDirectionColumn">
-					<img class="coverImage" src="assets/cover.png">
+					<img class="coverImage" src="assets/songCovers/cover.png">
 					<button class="appearingPlayBtn completeCenter"><img src="assets/cardPlayButton.svg"></button>
 					<h2>Happy Hits!</h2>
 					<p>Hits to boost your mood and fill you with happiness!</p>
 				</div>
 				<div class="card flexDirectionColumn">
-					<img class="coverImage" src="assets/cover.png">
+					<img class="coverImage" src="assets/songCovers/cover.png">
 					<button class="appearingPlayBtn completeCenter"><img src="assets/cardPlayButton.svg"></button>
 					<h2>Happy Hits!</h2>
 					<p>Hits to boost your mood and fill you with happiness!</p>
@@ -83,15 +88,16 @@
 	<div class="songPlayBar completeCenter">
 		<div class="playBar-Left"></div>
 		<div class="playBar-Center flexDirectionColumn alighnCenter">
-			<div class="songButtons alighnCenter">
+	        <div class="songButtons alighnCenter">
 			    <img class="prevSongClass" src="assets/prevsong.svg">
 			    <img class="playSongClass" src="assets/playBarSongPlayButton.svg">
 			    <img class="nextSongClass" src="assets/nextsong.svg">
-			</div>
-			<div class="songDurationBar">
-				<!-- <input type="range" name=""> -->
-			</div>
-		</div>
+	        </div>
+	        <p id="songInitialDuration">00:00</p>
+	        <div class="seekbar">
+	        	<div class="seekbar-Circle"></div>
+	        </div>
+	        <p id="songCurrentDuration">12:30</p> <!-- start from here(sekbar functioning and designs) -->
 		<div class="playBar-Right"></div>
 	</div>
 </main>

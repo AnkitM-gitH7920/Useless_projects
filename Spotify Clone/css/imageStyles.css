@@ -18,10 +18,22 @@
 	margin-right: 10px;
 }
 /*left bottom>song > playicon styles*/
-.song>i{
+.togglePlayPauseDiv{
 	position: absolute;
 	right: 10px;
+}
+.togglePlayPauseDiv>i{
 	font-size: 1.8rem;
+}
+.librarySongs-coverImage{ /*left bottom library song list's song cover styles*/
+	overflow: hidden;
+}
+.librarySongs-coverImage>img{
+	box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.8);
+	object-fit: contain;
+	height: 37px;
+	width: 37px;
+	border-radius: 4px;
 }
 /*right bottom cover image design*/
 .coverImage{

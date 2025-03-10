@@ -2,41 +2,49 @@
   {
     "Song_name": "Lemonade",
     "Artist":"Diljit Dosanjh",
+    "song_cover":"http://localhost:3000/assets/songCovers/LemonadeCover.png",
     "url": "http://localhost:3000/songs/Lemonade.mp3"
   },
   {
     "Song_name": "Moon Rise",
     "Artist":"Guru Randhawa",
+    "song_cover":"http://localhost:3000/assets/songCovers/moonriseCover.png",
     "url": "http://localhost:3000/songs/Moon_Rise_Guru_Randhawa.mp3"
   },
   {
     "Song_name": "Sin",
     "Artist":"Sidhu Moose wala",
+    "song_cover":"http://localhost:3000/assets/songCovers/sinCover.png",
     "url": "http://localhost:3000/songs/Sin_Sidhu_Moose_Wala.mp3"
   },
   {
     "Song_name":"Turbanator",
     "Artist":"Tarsem Jassar",
+    "song_cover":"http://localhost:3000/assets/songCovers/turbanatorCover.png",
     "url":"http://localhost:3000/songs/Turbanator(TARSEM_JASSAR).mp3"
   },
   {
     "Song_name":"Selfmade",
     "Artist":"Sidhu Moose wala",
+    "song_cover":"http://localhost:3000/assets/songCovers/SelfmadeCover.png",
     "url":"http://localhost:3000/songs/Selfmade-Chaache-Maame(Sidhu_Moose_Wala).mp3"
   },
   {
     "Song_name":"Khairiyat",
     "Artist":"Arijit Singh",
+    "song_cover":"http://localhost:3000/assets/songCovers/khairiyatCover.png",
     "url":"http://localhost:3000/songs/Khairiyat-(Bonus_Track).mp3"
   },
   {
     "Song_name":"Charged Up",
     "Artist":"Jxggi",
+    "song_cover":"http://localhost:3000/assets/songCovers/ChargedUpCover.png",
     "url":"http://localhost:3000/songs/ChargedUp-(Uddna_Sapp)-Jxggi.mp3"
   },
   {
     "Song_name":"Gaddi Ch Yaar",
     "Artist":"Kamal Khaira",
+    "song_cover":"http://localhost:3000/assets/songCovers/gaddichyaarCover.png",
     "url":"http://localhost:3000/songs/Gaddi_Ch_Yaar-Kamal_Khaira.mp3"
   }
 ]
