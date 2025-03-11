@@ -20,10 +20,17 @@
 /*left bottom>song > playicon styles*/
 .togglePlayPauseDiv{
 	position: absolute;
-	right: 10px;
+	top: 16px;
+	right: 40px;
 }
-.togglePlayPauseDiv>i{
+.bx-play-circle,
+.bx-pause-circle{
+	position: absolute;
 	font-size: 1.8rem;
+}
+
+.bx-pause-circle{
+	cursor: pointer;
 }
 .librarySongs-coverImage{ /*left bottom library song list's song cover styles*/
 	overflow: hidden;

@@ -76,6 +76,7 @@ body{
 	border:1px solid gray;
 	border-radius:7px;
 	padding: 0px 0px 0px 10px;
+	cursor: pointer;
 }
 .songDetails{
 	gap: 3px;
