@@ -1,62 +1,38 @@
-let songListLibrary = document.querySelector('.leftBottom-libraryContent');
-let getSongList = [];
-let currentAudio = null; // Store currently playing audio
+let leftBottomLibrary = document.querySelector('.leftBottom-libraryContent')
+let rightBottomSongCardContainer = document.querySelector('.playlistDesign-songCardContainer');
+console.log(rightBottomSongCardContainer)
 
-async function getSongs() {
-    let a = await fetch('songs/songInfo.JSON');
-    return a.json();
+async function getSongs(){
+	let songs = await fetch('songs/songInfo.JSON')
+	return await songs.json()
 }
-
-async function displaySongsOnLibrary() {
-    getSongList = await getSongs();
-    getSongList.forEach((song, index) => {
-        let songElement = document.createElement("div");
-        songElement.classList.add("song", "alighnCenter");
-        songElement.setAttribute("song_index", index);
-        songElement.innerHTML = `
-            <div class="librarySongs-coverImage">
-                <img src="${song.song_cover}">
-            </div>
-            <div class="songDetails flexDirectionColumn">
+async function displayToLibrary(){
+	let pushedSongs = await getSongs()
+	pushedSongs.forEach((song)=>{
+		leftBottomLibrary.innerHTML += `
+	    <div class="song alighnCenter">
+		    <div class="librarySongs-coverImage">
+			    <img src="${song.song_cover}">
+		    </div>
+		    <div class="songDetails flexDirectionColumn">
                 <div id="songName"><p>${song.Song_name}</p></div>
-                <div id="artistName"><p>${song.Artist}</p></div>
-            </div>
-            <div class="togglePlayPauseDiv">
-                <i class='bx bx-play-circle' style='color:#ffffff;cursor: pointer;'></i>
-            </div>`;
-
-        // Attach event listener to each song
-        songElement.addEventListener("click", playTrack);
-
-        // Append to the library container
-        songListLibrary.appendChild(songElement);
-
-        // check for playPause
-        songElement.addEventListener('click',()=>{
-        	let createdI = document.createElement('i')
-        	createElement.classList.add()
-        })
-    });
-    return "Successfully Loaded content to DOM";
+			    <div id="artistName"><p>${song.Artist}</p></div>
+		    </div>
+		    <div class="togglePlayPauseDiv completeCenter">
+			    <i class='bx bx-play-circle' style='color:#ffffff;cursor: pointer;'></i>
+		    </div>
+	    </div>`
+	    rightBottomSongCardContainer.innerHTML += `
+	    <div class="card flexDirectionColumn">
+			<img class="coverImage" src="${song.song_cover}">
+			<button class="appearingPlayBtn completeCenter"><img src="assets/cardPlayButton.svg"></button>
+			<h2>${song.Song_name}</h2>
+			<p>${song.Artist}</p>
+		</div>
+	    `
+	});
 }
-
-function playTrack(event) {
-    let songDiv = event.currentTarget;
-    let index = songDiv.getAttribute('song_index');
-    let selectedSongUrl = getSongList[index].url;
-
-    // Stop currently playing song (if any)
-    if (currentAudio) {
-        currentAudio.pause();
-    }
-
-    // Play the new song
-    currentAudio = new Audio(selectedSongUrl);
-    currentAudio.play();
+async function main(){
+	await displayToLibrary()
 }
-
-async function Main() {
-    let DOMloaded = await displaySongsOnLibrary();
-    console.log(DOMloaded);
-}
-Main();
+main()

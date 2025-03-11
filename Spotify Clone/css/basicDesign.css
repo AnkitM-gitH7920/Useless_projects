@@ -151,7 +151,7 @@ body{
 .appearingPlayBtn{
 	position: absolute;
 	right: 17px;
-	bottom: 85px;
+	bottom: 95px;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
 	opacity: 0;
 	outline: none;

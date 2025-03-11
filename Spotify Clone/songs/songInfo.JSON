@@ -46,5 +46,11 @@
     "Artist":"Kamal Khaira",
     "song_cover":"http://localhost:3000/assets/songCovers/gaddichyaarCover.png",
     "url":"http://localhost:3000/songs/Gaddi_Ch_Yaar-Kamal_Khaira.mp3"
+  },
+  {
+    "Song_name":"Bhabhi 2",
+    "Artist":"Mankirt Aulakh",
+    "song_cover":"http://localhost:3000/assets/songCovers/bhabhi2Cover.png",
+    "url":"http://localhost:3000/songs/Bhabhi-2(Mankirt-Aulakh).mp3"
   }
 ]
