@@ -1,20 +1,27 @@
-let leftBottomLibrary            = document.querySelector('.leftBottom-libraryContent');
-let rightBottomSongCardContainer = document.querySelector('.playlistDesign-songCardContainer');
-
-// global variables
-let card;
-let playbarBtn;
-// global variables
-
 let songs;
 let currentAudio = null;
 
+// global variables
+let playbarBtn;
+// global variables
+
 async function getSongs() {
-	let importedSongs = await fetch('songs/songInfo.JSON');
-	songs = await importedSongs.json();
-	return songs;
-}
+    try {
+        let importedSongs = await fetch('songs/songInfo.JSON');
+        if (!importedSongs.ok) {
+            throw new Error("Failed to load song data");
+        }
+        songs = await importedSongs.json();
+        return songs;
+    } catch (error) {
+        console.error("Error fetching songs:", error);
+        songs = [];
+    }
+};
 async function displayToLibraries() {
+	let leftBottomLibrary = document.querySelector('.leftBottom-libraryContent');
+	let rightBottomSongCardContainer = document.querySelector('.playlistDesign-songCardContainer');
+
 	songs.forEach((song,index) => {
 		leftBottomLibrary.innerHTML += `
 	    <div class="song alighnCenter">
@@ -47,59 +54,81 @@ function addAnimationToBigText(){
 			el.classList.add('marqueeAnimation')
 		};
 	});
+	return;
 }
 // added animation to big words(no relation with async functions)
-async function playSong() {
+async function songPlayingFunction() {
 	let leftLibraryPlayButtons = document.querySelectorAll('.playNowButtons');
 	let rightLibraryPlayButtons = document.querySelectorAll('.appearingPlayBtn');
 
 	leftLibraryPlayButtons.forEach((button, songIndex) => {
 		button.addEventListener('click', () => {
-			playTrack(songs[songIndex].url,songIndex);
+			playSelectedTrack(songs[songIndex].url,songIndex);
 		});
 	});
 	rightLibraryPlayButtons.forEach((i, songIndex) => {
 		i.addEventListener('click', () => {
-			playTrack(songs[songIndex].url,songIndex);
+			playSelectedTrack(songs[songIndex].url,songIndex);
 		});
 	});
 }
 
-async function playTrack(track,songIndex) {
+async function playSelectedTrack(track,songIndex) {
     playbarBtn = document.getElementById('playSongId');
 	try {
-		// main function , preventing two songs to play at a time
-		if (currentAudio) {
-			currentAudio.pause();
-		}
-		currentAudio = new Audio(track);
-		currentAudio.play();
-		playbarBtn.src = "assets/playBarSongPauseButton.svg";
+		// main function , preventing two songs to play at a time and memory leaks
+		if (!currentAudio) {
+            currentAudio = new Audio();
+        } else {
+            currentAudio.pause();
+        }
+        currentAudio.src = track;
+        currentAudio.play();
+        playbarBtn.src = "assets/playBarSongPauseButton.svg";
 
 		playbarBtn.onclick =()=> {
 			if (currentAudio.paused) {
 				currentAudio.play();
 				playbarBtn.src = "assets/playBarSongPauseButton.svg";
-			} else {
+			} else{
 				currentAudio.pause();
 				playbarBtn.src = "assets/playBarSongPlayButton.svg";
-			}
+			};
 		};
-		// main function , preventing two songs to play at a time
+		// main function , preventing two songs to play at a time and memory leaks
+		// listen to time update of song
 		loadCurrentSongToPlayBar(songIndex);
+		currentAudio.addEventListener('timeupdate',songTimeUpdateFunction)
 	}catch(error) {
 		console.log(error);
 	};
 };
-// added animation to big words(no relation with async functions)
-function addAnimationsToCurrentTrack(){
-	let currentTrackSongName = document.getElementById("currentTrackSongName");
-	let parentCurrentTrackSongName = document.getElementById("currentTrackSongName").parentElement;
-	if (currentTrackSongName.scrollWidth>parentCurrentTrackSongName.clientWidth) {
-		currentTrackSongName.classList.add('marqueeAnimation')
+// seconds to minute conversion
+
+// time update function 
+function songTimeUpdateFunction(){
+	document.getElementById("songInitialTiming").innerText = `${secondsToMinuteSeconds(currentAudio.currentTime)}`;
+	document.getElementById("songDuration").innerText = `${secondsToMinuteSeconds(currentAudio.duration)}`;
+	if (document.getElementById("songInitialTiming").innerText == `${secondsToMinuteSeconds(currentAudio.duration)}`) {
+		document.getElementById("songInitialTiming").innerText = "00:00";
+		document.getElementById("songDuration").innerText = "00:00";
+		playbarBtn.src = "assets/playBarSongPlayButton.svg";
+	};
+};
+// time update function 
+function secondsToMinuteSeconds(seconds){
+	if(isNaN(seconds) || seconds<0){
+		return "00:00";
 	}
+	const minutes = Math.floor(seconds / 60);
+	const remainingSeconds = Math.floor(seconds % 60);
+
+	const formattedMinutes = String(minutes).padStart(2,'0');
+	const formattedSeconds = String(remainingSeconds).padStart(2,'0');
+
+	return `${formattedMinutes}:${formattedSeconds}`;
 }
-// added animation to big words(no relation with async functions)
+// seconds to minute conversion
 function loadCurrentSongToPlayBar(songIndex){
 	let playBarLeftPortion = document.querySelector('.playBar-Left')
 	playBarLeftPortion.innerHTML = `
@@ -115,9 +144,19 @@ function loadCurrentSongToPlayBar(songIndex){
     </div>`;
     addAnimationsToCurrentTrack();
 }
+// added animation to big words(no relation with async functions)
+function addAnimationsToCurrentTrack(){
+	let currentTrackSongName = document.getElementById("currentTrackSongName");
+	let parentCurrentTrackSongName = document.getElementById("currentTrackSongName").parentElement;
+	if (currentTrackSongName.scrollWidth>parentCurrentTrackSongName.clientWidth) {
+		currentTrackSongName.classList.add('marqueeAnimation')
+	}
+	return;
+}
+// added animation to big words(no relation with async functions)
 async function main() {
 	await getSongs();
 	await displayToLibraries();
-	await playSong();
+	await songPlayingFunction();
 }
 main();
