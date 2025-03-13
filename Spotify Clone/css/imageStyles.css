@@ -17,20 +17,7 @@
 	width: 30px;
 	margin-right: 10px;
 }
-/*left bottom>song > playicon styles*/
-.togglePlayPauseDiv{
-	position: absolute;
-	right: 25px;
-}
-.bx-play-circle,
-.bx-pause-circle{
-	position: absolute;
-	font-size: 1.8rem;
-}
 
-.bx-pause-circle{
-	cursor: pointer;
-}
 .librarySongs-coverImage{ /*left bottom library song list's song cover styles*/
 	overflow: hidden;
 }
@@ -51,3 +38,17 @@
 	border-radius: 6px;
 }
 /*right bottom cover image design*/
+
+/*playbar designs*/
+.songButtons>img{
+	cursor: pointer;
+}
+#playSongId{
+	height: 40px;
+	width: 40px;
+	transition: all 0.3s;
+}
+#playSongId:hover{
+	transform: scale(1.06);
+}
+/*playbar designs*/

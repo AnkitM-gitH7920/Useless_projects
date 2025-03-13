@@ -76,23 +76,54 @@ body{
 	border:1px solid gray;
 	border-radius:7px;
 	padding: 0px 0px 0px 10px;
-	cursor: pointer;
 }
 .songDetails{
-	gap: 3px;
-	width: 165px;
+	overflow: hidden;
+	width: 125px;
 }
-#songName>p{
+#songName,
+#artistName{
+	white-space: nowrap;
+	overflow: hidden;
+	min-width: 100%;
+}
+#artistName{
+	margin-bottom: 3px;
+}
+#songName>span{
+	white-space: nowrap;
 	font-size: 21px;
 }
-#artistName>p{
+#artistName>span{
 	font-size: 11px;
 	color: #ccc;
-	margin-bottom: 4px;
-	overflow: hidden;
-	white-space: normal;
 }
-
+.marqueeAnimation{
+	animation: marquee 11s linear infinite;
+}
+@keyframes marquee{
+	0%{
+		transform: translate(100%,0);
+	}
+	100%{
+		transform: translate(-150%,0);
+	}
+}
+.playNowDiv{
+	position: absolute;
+	right:9px;
+}
+.playNowDiv>p{
+	font-size: 13px;
+	cursor: pointer;
+	font-weight: 600;
+	transition: all 0.2s;
+}
+.playNowDiv>p:hover{
+	transform: scale(1.07);
+	color: #1fdf64;
+	text-decoration: underline;
+}
 /*left bottom song listing designs*/
 
 /*right top*/

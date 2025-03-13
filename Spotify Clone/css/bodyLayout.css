@@ -110,6 +110,7 @@ div{
 }
 
 .card>p{
+	color: #ccc;
 	margin-bottom: 7px;
 	font-size: 0.9rem;
 }
@@ -136,13 +137,7 @@ div{
 	margin-top: 10px;
 	gap: 20px;
 }
-.songButtons>img{
-	cursor: pointer;
-}
-.playSongClass{
-	height: 40px;
-	width: 40px;
-}
+
 
 /*right bottom play bar design*/
 /*right bottom content*/
