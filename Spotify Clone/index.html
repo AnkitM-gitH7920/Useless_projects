@@ -76,18 +76,25 @@
 		</div>
 	</div>
 	<div class="songPlayBar completeCenter">
-		<div class="playBar-Left"></div>
+		<div class="playBar-Left alighnCenter justifyStart">
+			<!-- js block -->
+
+			<!-- js block -->
+		</div>
 		<div class="playBar-Center flexDirectionColumn alighnCenter">
 	        <div class="songButtons alighnCenter">
 			    <img id="prevSongId" src="assets/prevsong.svg">
 			    <img id="playSongId" src="assets/playBarSongPlayButton.svg">
 			    <img id="nextSongId" src="assets/nextsong.svg">
 	        </div>
-	        <p id="songInitialDuration">00:00</p>
-	        <div class="seekbar">
-	        	<div class="seekbar-Circle"></div>
+	        <div class="seekbarRequirements alighnCenter">
+	        	<p id="songInitialTiming">00:00</p>
+	        	<div class="seekbar" style="width:300px;height: 6px; background-color: white; border-radius: 80px; margin: 0px 10px;"> <!-- start from here(designing seekbar)-->
+	        		<div class="circle"></div>
+	        	</div>
+	        	<p id="updatingSongTiming">12:00</p>
 	        </div>
-	        <p id="songCurrentDuration">12:30</p> <!-- start from here(sekbar functioning and designs) -->
+	    </div>
 		<div class="playBar-Right"></div>
 	</div>
 </main>

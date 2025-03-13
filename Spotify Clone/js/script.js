@@ -15,8 +15,7 @@ async function getSongs() {
 	return songs;
 }
 async function displayToLibraries() {
-	songs = await getSongs();
-	songs.forEach((song) => {
+	songs.forEach((song,index) => {
 		leftBottomLibrary.innerHTML += `
 	    <div class="song alighnCenter">
 		    <div class="librarySongs-coverImage">
@@ -48,7 +47,6 @@ function addAnimationToBigText(){
 			el.classList.add('marqueeAnimation')
 		};
 	});
-	return;
 }
 // added animation to big words(no relation with async functions)
 async function playSong() {
@@ -57,19 +55,20 @@ async function playSong() {
 
 	leftLibraryPlayButtons.forEach((button, songIndex) => {
 		button.addEventListener('click', () => {
-			playTrack(songs[songIndex].url);
+			playTrack(songs[songIndex].url,songIndex);
 		});
 	});
 	rightLibraryPlayButtons.forEach((i, songIndex) => {
 		i.addEventListener('click', () => {
-			playTrack(songs[songIndex].url);
+			playTrack(songs[songIndex].url,songIndex);
 		});
 	});
 }
 
-function playTrack(track) {
+async function playTrack(track,songIndex) {
     playbarBtn = document.getElementById('playSongId');
 	try {
+		// main function , preventing two songs to play at a time
 		if (currentAudio) {
 			currentAudio.pause();
 		}
@@ -77,7 +76,6 @@ function playTrack(track) {
 		currentAudio.play();
 		playbarBtn.src = "assets/playBarSongPauseButton.svg";
 
-		// main function , preventing two songs to play at a time
 		playbarBtn.onclick =()=> {
 			if (currentAudio.paused) {
 				currentAudio.play();
@@ -88,11 +86,35 @@ function playTrack(track) {
 			}
 		};
 		// main function , preventing two songs to play at a time
+		loadCurrentSongToPlayBar(songIndex);
 	}catch(error) {
 		console.log(error);
 	};
 };
-
+// added animation to big words(no relation with async functions)
+function addAnimationsToCurrentTrack(){
+	let currentTrackSongName = document.getElementById("currentTrackSongName");
+	let parentCurrentTrackSongName = document.getElementById("currentTrackSongName").parentElement;
+	if (currentTrackSongName.scrollWidth>parentCurrentTrackSongName.clientWidth) {
+		currentTrackSongName.classList.add('marqueeAnimation')
+	}
+}
+// added animation to big words(no relation with async functions)
+function loadCurrentSongToPlayBar(songIndex){
+	let playBarLeftPortion = document.querySelector('.playBar-Left')
+	playBarLeftPortion.innerHTML = `
+	<div class="playBar-LeftContent flex flexDirectionColumn">
+	    <p id="currentTrackHead">Currently Playing</p>
+        <div class="currentTrackInfo alighnCenter">
+            <div class="currentTrackCover"><img src="${songs[songIndex].song_cover}"></div>
+            <div class="currentTrackSongInfo flexDirectionColumn">
+	            <p id="currentTrackSongName" class="">${songs[songIndex].Song_name}</p>
+	            <p id="currentTrackArtistName">${songs[songIndex].Artist}</p>
+            </div>
+        </div>
+    </div>`;
+    addAnimationsToCurrentTrack();
+}
 async function main() {
 	await getSongs();
 	await displayToLibraries();

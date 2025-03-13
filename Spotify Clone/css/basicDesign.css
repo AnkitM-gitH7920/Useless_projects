@@ -23,44 +23,46 @@ body{
 	height: 10px;
 	background-color: rgba(76, 77, 84);
 }
-/*seekbar designs*/
-.seekbar{
-	position: relative;
-	width: 85%;
-	height: 6px;
-	border: 1px solid #595b5e;
-	border-radius: 40px;
-	cursor: pointer;
-	margin: 3px 0px;
-	background-color: #76777a;
+/*playbar designs*/
+/*playbarleft portion(containing details about currently playing song loaded by javascript)*/
+
+.playBar-LeftContent{
+	gap: 5px;
+    height: 65%;
+    width: 250px;
+    background-color: rgba(62, 62, 62, 0.4);
+    border-radius: 5px;
+    padding: 7px 0px 7px 13px;
+    border:1px solid gray;
+    animation: appear 1s cubic-bezier(0, 1.08, 1, 1);
 }
-.seekbar:hover{
-	background-color: #1fdf64;
+@keyframes appear{
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+	}
 }
-#songInitialDuration,
-#songCurrentDuration{
-	position: absolute;
-	font-size: 13px;
+#currentTrackHead{
+	font-weight: bolder;
+	color: rgba(204, 204, 204, 0.8);
+	font-size: 0.66rem;
 }
-#songInitialDuration{
-	bottom: 6px;
-	left: 0px;
+#currentTrackSongName{
+	white-space: nowrap;
+	width: 130px;
+	font-size: 1.4rem;
 }
-#songCurrentDuration{
-	bottom: 6px;
-	right: 0px;
+#currentTrackArtistName{
+	margin-bottom: 8px;
+	color: #ccc;
+	font-size: 0.7rem;
 }
-.seekbar-Circle{
-	position: absolute;
-	left: 0px; /*we may need to change it to percentage*/
-	top: -8px;
-	height: 20px;
-	width: 20px;
-	border-radius: 70px;
-	background-color: #fff;
-	transition: left 0.5s;
-}
-/*seekbar designs*/
+/*playbarleft portion(containing details about currently playing song loaded by javascript)*/
+
+
+/*playbar designs*/
 /*left bottom song listing designs*/
 
 .leftBottom-libraryContent{
@@ -144,10 +146,11 @@ body{
 .bx-chevron-right:hover{
 	background-color:#292828 ;
 }
-/*button styles*/
+/*chevrons*/
 .rightTop-rightContent{
 	margin-right: 1.5em;
 }
+/*button styles*/
 .signUpBtn,
 .logInBtn{
 	cursor: pointer;
@@ -174,6 +177,7 @@ body{
 .logInBtn:hover{
 	background-color: #d1cfcf;
 }
+/*button styles*/
 /*right top buttons and arrows desighn*/
 /*right top*/
 
@@ -183,9 +187,7 @@ body{
 	position: absolute;
 	right: 17px;
 	bottom: 95px;
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
 	opacity: 0;
-	outline: none;
 	border: none;
 	height: 45px;
 	width: 45px;
@@ -193,6 +195,9 @@ body{
 	cursor: pointer;
 	background-color: #1fdf64;
 	transition: all 0.3s cubic-bezier(0, 1.13, 1, 1);
+}
+.appearingPlayBtn:hover{
+	box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.9);
 }
 .card:hover .appearingPlayBtn{
 	transform: translateY(-15px);
