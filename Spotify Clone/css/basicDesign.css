@@ -34,7 +34,9 @@ body{
     border-radius: 5px;
     padding: 7px 0px 7px 13px;
     border:1px solid gray;
-    animation: appear 1s cubic-bezier(0, 1.08, 1, 1);
+}
+.appear{
+	animation: appear 1s cubic-bezier(0, 1.08, 1, 1);
 }
 @keyframes appear{
 	from{
@@ -74,7 +76,7 @@ body{
 	margin: 0px 22px;
 }
 #songInitialTiming,
-#songDuration{
+#updatingSongTiming{
 	color: #ccc;
 	font-weight: bolder;
 }
@@ -130,11 +132,12 @@ body{
 	color: #ccc;
 }
 .marqueeAnimation{
-	animation: marquee 11s linear infinite;
+	animation: marquee 11s linear 20s infinite;
+	animation-delay: 3s;
 }
 @keyframes marquee{
 	0%{
-		transform: translate(100%,0);
+		transform: translateX(0);
 	}
 	100%{
 		transform: translate(-150%,0);

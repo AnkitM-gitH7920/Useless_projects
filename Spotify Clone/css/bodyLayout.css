@@ -99,7 +99,7 @@ div{
 	height: 270px;
 	width: 185px;
 	border-radius: 6px;
-	transition: all 0.5s;
+	transition: all 0.2s;
 }
 .card:hover{
 	transform: scale(1.04);

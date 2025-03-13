@@ -74,19 +74,20 @@ async function songPlayingFunction() {
 }
 
 async function playSelectedTrack(track,songIndex) {
-    playbarBtn = document.getElementById('playSongId');
+	playbarBtn = document.getElementById('playSongId');
 	try {
 		// main function , preventing two songs to play at a time and memory leaks
 		if (!currentAudio) {
             currentAudio = new Audio();
         } else {
             currentAudio.pause();
+            currentAudio.removeEventListener('timeupdate', songTimeUpdateFunction);
         }
         currentAudio.src = track;
         currentAudio.play();
         playbarBtn.src = "assets/playBarSongPauseButton.svg";
 
-		playbarBtn.onclick =()=> {
+		playbarBtn.onclick = function(){
 			if (currentAudio.paused) {
 				currentAudio.play();
 				playbarBtn.src = "assets/playBarSongPauseButton.svg";
@@ -131,6 +132,7 @@ function secondsToMinuteSeconds(seconds){
 // seconds to minute conversion
 function loadCurrentSongToPlayBar(songIndex){
 	let playBarLeftPortion = document.querySelector('.playBar-Left')
+	playBarLeftPortion.classList.add('appear')
 	playBarLeftPortion.innerHTML = `
 	<div class="playBar-LeftContent flex flexDirectionColumn">
 	    <p id="currentTrackHead">Currently Playing</p>
