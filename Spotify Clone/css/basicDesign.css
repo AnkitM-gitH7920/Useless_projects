@@ -63,6 +63,13 @@ body{
 }
 /*playbarleft portion(containing details about currently playing song loaded by javascript)*/
 
+/*playbar plus and minus ten seconds design*/
+#plusTenSeconds,
+#minusTenSeconds{
+	height: 30px;
+}
+/*playbar plus and minus ten seconds design*/
+
 /*seekbar*/
 .seekbarRequirements{
 	margin-bottom: 7px;
@@ -74,9 +81,10 @@ body{
 	background-color: gray; 
 	border-radius: 80px; 
 	margin: 0px 22px;
+	cursor: pointer;
 }
 #songInitialTiming,
-#updatingSongTiming{
+#songDuration{
 	color: #ccc;
 	font-weight: bolder;
 }
@@ -132,15 +140,15 @@ body{
 	color: #ccc;
 }
 .marqueeAnimation{
-	animation: marquee 11s linear 20s infinite;
+	animation: marquee 12s linear 20s infinite alternate;
 	animation-delay: 3s;
 }
 @keyframes marquee{
 	0%{
-		transform: translateX(0);
+		transform: translateX(7%);
 	}
 	100%{
-		transform: translate(-150%,0);
+		transform: translateX(-120%);
 	}
 }
 .playNowDiv{

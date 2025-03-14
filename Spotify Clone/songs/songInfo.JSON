@@ -24,6 +24,12 @@
     "url":"http://localhost:3000/songs/Turbanator(TARSEM_JASSAR).mp3"
   },
   {
+    "Song_name":"Peg Di Waashna",
+    "Artist":"Amrit Maan",
+    "song_cover":"http://localhost:3000/assets/songCovers/pegdiwaashnaCover.png",
+    "url":"http://localhost:3000/songs/Peg_Di_Waashna_1.mp3"
+  },
+  {
     "Song_name":"Selfmade",
     "Artist":"Sidhu Moose wala",
     "song_cover":"http://localhost:3000/assets/songCovers/SelfmadeCover.png",
@@ -58,5 +64,11 @@
     "Artist":"Mankirt Aulakh",
     "song_cover":"http://localhost:3000/assets/songCovers/bhabhi2Cover.png",
     "url":"http://localhost:3000/songs/Bhabhi-2(Mankirt-Aulakh).mp3"
+  },
+  {
+    "Song_name":"Tum hi aana",
+    "Artist":"Jubin Nautiyal",
+    "song_cover":"http://localhost:3000/assets/songCovers/tumhiaanaCover.png",
+    "url":"http://localhost:3000/songs/Tum-Hi-Aana(From-Marjawan).mp3"
   }
 ]

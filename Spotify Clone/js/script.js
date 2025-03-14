@@ -40,7 +40,7 @@ async function displayToLibraries() {
 	    <div class="card flexDirectionColumn">
 			<img class="coverImage" src="${song.song_cover}">
 			<button class="appearingPlayBtn completeCenter"><img src="assets/cardPlayButton.svg"></button>
-			<h2>${song.Song_name}</h2>
+			<div class="cardSongName"><h2>${song.Song_name}</h2></div>
 			<p>${song.Artist}</p>
 		</div>`;
 	});
@@ -54,6 +54,12 @@ function addAnimationToBigText(){
 			el.classList.add('marqueeAnimation')
 		};
 	});
+	document.querySelectorAll('.card h2').forEach((el)=>{
+		let parent = el.parentElement;
+		if(el.scrollWidth>parent.clientWidth){
+			el.classList.add('marqueeAnimation');
+		};
+	})
 	return;
 }
 // added animation to big words(no relation with async functions)
@@ -71,8 +77,7 @@ async function songPlayingFunction() {
 			playSelectedTrack(songs[songIndex].url,songIndex);
 		});
 	});
-}
-
+};
 async function playSelectedTrack(track,songIndex) {
 	playbarBtn = document.getElementById('playSongId');
 	try {
@@ -87,6 +92,10 @@ async function playSelectedTrack(track,songIndex) {
         currentAudio.play();
         playbarBtn.src = "assets/playBarSongPauseButton.svg";
 
+        // function for forwarding and backwarding songs
+       
+        // function for forwarding and backwarding songs
+
 		playbarBtn.onclick = function(){
 			if (currentAudio.paused) {
 				currentAudio.play();
@@ -96,9 +105,20 @@ async function playSelectedTrack(track,songIndex) {
 				playbarBtn.src = "assets/playBarSongPlayButton.svg";
 			};
 		};
+		document.querySelector('.seekbar').addEventListener('click',(event)=>{
+			let percent = (event.offsetX/event.target.getBoundingClientRect().width)*100;
+			document.querySelector('.circle').style.left = percent + "%";
+			currentAudio.currentTime = (currentAudio.duration*percent)/100;
+		});
+		document.getElementById('minusTenSeconds').addEventListener('click',()=>{
+			currentAudio.currentTime -= 10.00;
+		});
+		document.getElementById('plusTenSeconds').addEventListener('click',()=>{
+			currentAudio.currentTime += 10.00;
+		});
 		// main function , preventing two songs to play at a time and memory leaks
-		// listen to time update of song
 		loadCurrentSongToPlayBar(songIndex);
+		// listen to time update of song
 		currentAudio.addEventListener('timeupdate',songTimeUpdateFunction)
 	}catch(error) {
 		console.log(error);
@@ -110,10 +130,15 @@ async function playSelectedTrack(track,songIndex) {
 function songTimeUpdateFunction(){
 	document.getElementById("songInitialTiming").innerText = `${secondsToMinuteSeconds(currentAudio.currentTime)}`;
 	document.getElementById("songDuration").innerText = `${secondsToMinuteSeconds(currentAudio.duration)}`;
+	try{
+		document.querySelector('.circle').style.left = (currentAudio.currentTime/currentAudio.duration)*100 + "%";
+	}
+	catch(err){
+		console.log(err)
+	}
 	if (document.getElementById("songInitialTiming").innerText == `${secondsToMinuteSeconds(currentAudio.duration)}`) {
 		document.getElementById("songInitialTiming").innerText = "00:00";
 		document.getElementById("songDuration").innerText = "00:00";
-		playbarBtn.src = "assets/playBarSongPlayButton.svg";
 	};
 };
 // time update function 
