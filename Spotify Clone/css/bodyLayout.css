@@ -90,7 +90,7 @@ div{
 .playlistDesign-songCardContainer{
 	flex-wrap: wrap;
 	gap: 30px;
-	padding: 20px 75px 100px 73px;
+	padding: 20px 75px 110px 73px;
 }
 .card{
 	position: relative;
@@ -163,7 +163,6 @@ div{
 	gap: 7px;
 }
 .songButtons{
-	margin-top: 5px;
 	gap: 20px;
 }
 

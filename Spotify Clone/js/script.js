@@ -1,8 +1,8 @@
-let songs;
-let currentAudio = null;
-
 // global variables
-let playbarBtn;
+let songs;
+// let playbarBtn;
+let currentSongIndex = 0;
+let currentAudio = null;
 // global variables
 
 async function getSongs() {
@@ -39,7 +39,7 @@ async function displayToLibraries() {
 	    rightBottomSongCardContainer.innerHTML += `
 	    <div class="card flexDirectionColumn">
 			<img class="coverImage" src="${song.song_cover}">
-			<button class="appearingPlayBtn completeCenter"><img src="assets/cardPlayButton.svg"></button>
+			<button class="appearingPlayBtn completeCenter"><img src="assets/icons/cardPlayButton.svg"></button>
 			<div class="cardSongName"><h2>${song.Song_name}</h2></div>
 			<p>${song.Artist}</p>
 		</div>`;
@@ -69,17 +69,37 @@ async function songPlayingFunction() {
 
 	leftLibraryPlayButtons.forEach((button, songIndex) => {
 		button.addEventListener('click', () => {
-			playSelectedTrack(songs[songIndex].url,songIndex);
+			currentSongIndex = songIndex;
+			playSelectedTrack(songs[currentSongIndex].url,currentSongIndex);
 		});
 	});
 	rightLibraryPlayButtons.forEach((i, songIndex) => {
 		i.addEventListener('click', () => {
-			playSelectedTrack(songs[songIndex].url,songIndex);
+			currentSongIndex = songIndex;
+			playSelectedTrack(songs[currentSongIndex].url,currentSongIndex);
 		});
 	});
+	document.getElementById('nextSongId').addEventListener('click',()=>{
+		if (currentSongIndex < songs.length-1) {
+			currentSongIndex++;
+		}
+		else{
+			currentSongIndex = 0;
+		}
+		playSelectedTrack(songs[currentSongIndex].url);
+	});
+	document.getElementById('prevSongId').addEventListener('click',()=>{
+		if (currentSongIndex>=1) {
+			currentSongIndex--;
+		}
+		else{
+			currentSongIndex = songs.length - 1;
+		}
+		playSelectedTrack(songs[currentSongIndex].url)
+	})
 };
-async function playSelectedTrack(track,songIndex) {
-	playbarBtn = document.getElementById('playSongId');
+async function playSelectedTrack(track) {
+	let playbarBtn = document.getElementById('playSongId');
 	try {
 		// main function , preventing two songs to play at a time and memory leaks
 		if (!currentAudio) {
@@ -90,19 +110,15 @@ async function playSelectedTrack(track,songIndex) {
         }
         currentAudio.src = track;
         currentAudio.play();
-        playbarBtn.src = "assets/playBarSongPauseButton.svg";
-
-        // function for forwarding and backwarding songs
-       
-        // function for forwarding and backwarding songs
+        playbarBtn.src = "assets/icons/playBarSongPauseButton.svg";
 
 		playbarBtn.onclick = function(){
 			if (currentAudio.paused) {
 				currentAudio.play();
-				playbarBtn.src = "assets/playBarSongPauseButton.svg";
+				playbarBtn.src = "assets/icons/playBarSongPauseButton.svg";
 			} else{
 				currentAudio.pause();
-				playbarBtn.src = "assets/playBarSongPlayButton.svg";
+				playbarBtn.src = "assets/icons/playBarSongPlayButton.svg";
 			};
 		};
 		document.querySelector('.seekbar').addEventListener('click',(event)=>{
@@ -117,17 +133,15 @@ async function playSelectedTrack(track,songIndex) {
 			currentAudio.currentTime += 10.00;
 		});
 		// main function , preventing two songs to play at a time and memory leaks
-		loadCurrentSongToPlayBar(songIndex);
-		// listen to time update of song
 		currentAudio.addEventListener('timeupdate',songTimeUpdateFunction)
+		loadCurrentSongToPlayBar();
 	}catch(error) {
 		console.log(error);
 	};
 };
-// seconds to minute conversion
-
 // time update function 
 function songTimeUpdateFunction(){
+	if (isNaN(currentAudio.duration)) {return};
 	document.getElementById("songInitialTiming").innerText = `${secondsToMinuteSeconds(currentAudio.currentTime)}`;
 	document.getElementById("songDuration").innerText = `${secondsToMinuteSeconds(currentAudio.duration)}`;
 	try{
@@ -137,11 +151,14 @@ function songTimeUpdateFunction(){
 		console.log(err)
 	}
 	if (document.getElementById("songInitialTiming").innerText == `${secondsToMinuteSeconds(currentAudio.duration)}`) {
-		document.getElementById("songInitialTiming").innerText = "00:00";
-		document.getElementById("songDuration").innerText = "00:00";
+		document.getElementById("songInitialTiming").innerText = "--:--";
+		document.getElementById("songDuration").innerText = "--:--";
+		document.querySelector('.circle').style.left = 0 + "%";
 	};
 };
 // time update function 
+
+// seconds to minute conversion
 function secondsToMinuteSeconds(seconds){
 	if(isNaN(seconds) || seconds<0){
 		return "00:00";
@@ -155,17 +172,17 @@ function secondsToMinuteSeconds(seconds){
 	return `${formattedMinutes}:${formattedSeconds}`;
 }
 // seconds to minute conversion
-function loadCurrentSongToPlayBar(songIndex){
+function loadCurrentSongToPlayBar(){
 	let playBarLeftPortion = document.querySelector('.playBar-Left')
 	playBarLeftPortion.classList.add('appear')
 	playBarLeftPortion.innerHTML = `
 	<div class="playBar-LeftContent flex flexDirectionColumn">
 	    <p id="currentTrackHead">Currently Playing</p>
         <div class="currentTrackInfo alighnCenter">
-            <div class="currentTrackCover"><img src="${songs[songIndex].song_cover}"></div>
+            <div class="currentTrackCover"><img src="${songs[currentSongIndex].song_cover}"></div>
             <div class="currentTrackSongInfo flexDirectionColumn">
-	            <p id="currentTrackSongName" class="">${songs[songIndex].Song_name}</p>
-	            <p id="currentTrackArtistName">${songs[songIndex].Artist}</p>
+	            <p id="currentTrackSongName" class="">${songs[currentSongIndex].Song_name}</p>
+	            <p id="currentTrackArtistName">${songs[currentSongIndex].Artist}</p>
             </div>
         </div>
     </div>`;

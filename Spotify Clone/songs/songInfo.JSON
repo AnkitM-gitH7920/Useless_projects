@@ -66,6 +66,12 @@
     "url":"http://localhost:3000/songs/Bhabhi-2(Mankirt-Aulakh).mp3"
   },
   {
+    "Song_name":"Mere Rashke Qamar",
+    "Artist":"Nusrat Fateh Ali Khan",
+    "song_cover":"http://localhost:3000/assets/songCovers/mererashkeqamarCover.png",
+    "url":"http://localhost:3000/songs/Mere-Rashke-Qamar-Baadshaho.mp3"
+  },
+  {
     "Song_name":"Tum hi aana",
     "Artist":"Jubin Nautiyal",
     "song_cover":"http://localhost:3000/assets/songCovers/tumhiaanaCover.png",

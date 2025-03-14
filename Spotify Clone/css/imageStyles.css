@@ -54,9 +54,10 @@
 .songButtons>img{
 	cursor: pointer;
 }
+
 #playSongId{
-	height: 40px;
-	width: 40px;
+	height: 49px;
+	width: 49px;
 	transition: all 0.3s;
 }
 #playSongId:hover{
