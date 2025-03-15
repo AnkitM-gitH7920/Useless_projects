@@ -24,6 +24,12 @@
     "url":"http://localhost:3000/songs/Turbanator(TARSEM_JASSAR).mp3"
   },
   {
+    "Song_name":"O Re Piya",
+    "Artist":"Rahat Fateh Ali Khan",
+    "song_cover":"http://localhost:3000/assets/songCovers/orepiyaCover.png",
+    "url":"http://localhost:3000/songs/O-Re-Piya-Aaja-Nachle.mp3"
+  },
+  {
     "Song_name":"Peg Di Waashna",
     "Artist":"Amrit Maan",
     "song_cover":"http://localhost:3000/assets/songCovers/pegdiwaashnaCover.png",

@@ -1,6 +1,6 @@
 // global variables
 let songs;
-// let playbarBtn;
+let seekbar;
 let currentSongIndex = 0;
 let currentAudio = null;
 // global variables
@@ -20,10 +20,13 @@ async function getSongs() {
 };
 async function displayToLibraries() {
 	let leftBottomLibrary = document.querySelector('.leftBottom-libraryContent');
-	let rightBottomSongCardContainer = document.querySelector('.playlistDesign-songCardContainer');
+	// let rightBottomSongCardContainer = document.querySelector('.playlistDesign-songCardContainer');
+
+	let leftHTML = '';
+	// let rightHTML = '';
 
 	songs.forEach((song,index) => {
-		leftBottomLibrary.innerHTML += `
+		leftHTML += `
 	    <div class="song alighnCenter">
 		    <div class="librarySongs-coverImage">
 			    <img src="${song.song_cover}">
@@ -36,14 +39,19 @@ async function displayToLibraries() {
 			    <p class="playNowButtons">Play Now</p>
 		    </div>
 	    </div>`;
-	    rightBottomSongCardContainer.innerHTML += `
-	    <div class="card flexDirectionColumn">
-			<img class="coverImage" src="${song.song_cover}">
-			<button class="appearingPlayBtn completeCenter"><img src="assets/icons/cardPlayButton.svg"></button>
-			<div class="cardSongName"><h2>${song.Song_name}</h2></div>
-			<p>${song.Artist}</p>
-		</div>`;
+
+	    // rightHTML += `
+	    // <div class="card flexDirectionColumn">
+		// 	<img class="coverImage" src="${song.song_cover}">
+		// 	<button class="appearingPlayBtn completeCenter"><img src="assets/icons/cardPlayButton.svg"></button>
+		// 	<div class="cardSongName"><h2>${song.Song_name}</h2></div>
+		// 	<p>${song.Artist}</p>
+		// </div>`;
 	});
+	leftBottomLibrary.innerHTML = leftHTML;
+	// rightBottomSongCardContainer.innerHTML = rightHTML;
+	seekbar = document.getElementById('seekbar');
+	seekbar.value = 0;
 	addAnimationToBigText();
 }
 // added animation to big words(no relation with async functions)
@@ -59,13 +67,12 @@ function addAnimationToBigText(){
 		if(el.scrollWidth>parent.clientWidth){
 			el.classList.add('marqueeAnimation');
 		};
-	})
-	return;
+	});
 }
 // added animation to big words(no relation with async functions)
 async function songPlayingFunction() {
 	let leftLibraryPlayButtons = document.querySelectorAll('.playNowButtons');
-	let rightLibraryPlayButtons = document.querySelectorAll('.appearingPlayBtn');
+	// let rightLibraryPlayButtons = document.querySelectorAll('.appearingPlayBtn');
 
 	leftLibraryPlayButtons.forEach((button, songIndex) => {
 		button.addEventListener('click', () => {
@@ -73,12 +80,12 @@ async function songPlayingFunction() {
 			playSelectedTrack(songs[currentSongIndex].url,currentSongIndex);
 		});
 	});
-	rightLibraryPlayButtons.forEach((i, songIndex) => {
-		i.addEventListener('click', () => {
-			currentSongIndex = songIndex;
-			playSelectedTrack(songs[currentSongIndex].url,currentSongIndex);
-		});
-	});
+	// rightLibraryPlayButtons.forEach((iS, songIndex) => {
+	// 	iS.addEventListener('click', () => {
+	// 		currentSongIndex = songIndex;
+	// 		playSelectedTrack(songs[currentSongIndex].url,currentSongIndex);
+	// 	});
+	// });
 	document.getElementById('nextSongId').addEventListener('click',()=>{
 		if (currentSongIndex < songs.length-1) {
 			currentSongIndex++;
@@ -96,7 +103,25 @@ async function songPlayingFunction() {
 			currentSongIndex = songs.length - 1;
 		}
 		playSelectedTrack(songs[currentSongIndex].url)
-	})
+	});
+	document.getElementById('plusTenSeconds').addEventListener('click',()=>{
+		try{
+			if (currentAudio) {
+			    currentAudio.currentTime += 10.00;
+		    }
+		}catch(err){
+			console.log("please select a song first") //will add some UI here , suggesting the user to select a song to play first
+		}
+	});
+    document.getElementById('minusTenSeconds').addEventListener('click',()=>{
+    	try{
+			if (currentAudio) {
+			    currentAudio.currentTime -= 10.00;
+		    }
+		}catch(err){
+			console.log("please select a song first") //will add some UI here , suggesting the user to select a song to play first
+		}
+    });
 };
 async function playSelectedTrack(track) {
 	let playbarBtn = document.getElementById('playSongId');
@@ -111,6 +136,7 @@ async function playSelectedTrack(track) {
         currentAudio.src = track;
         currentAudio.play();
         playbarBtn.src = "assets/icons/playBarSongPauseButton.svg";
+        // main function , preventing two songs to play at a time and memory leaks
 
 		playbarBtn.onclick = function(){
 			if (currentAudio.paused) {
@@ -121,23 +147,24 @@ async function playSelectedTrack(track) {
 				playbarBtn.src = "assets/icons/playBarSongPlayButton.svg";
 			};
 		};
-		document.querySelector('.seekbar').addEventListener('click',(event)=>{
-			let percent = (event.offsetX/event.target.getBoundingClientRect().width)*100;
-			document.querySelector('.circle').style.left = percent + "%";
-			currentAudio.currentTime = (currentAudio.duration*percent)/100;
-		});
-		document.getElementById('minusTenSeconds').addEventListener('click',()=>{
-			currentAudio.currentTime -= 10.00;
-		});
-		document.getElementById('plusTenSeconds').addEventListener('click',()=>{
-			currentAudio.currentTime += 10.00;
-		});
-		// main function , preventing two songs to play at a time and memory leaks
+		document.getElementById('seekbar').addEventListener('input',(event)=>{
+			let seekTime = (event.target.value / 100) * currentAudio.duration;
+    	    currentAudio.currentTime = seekTime
+        });
+        // when the song ends
+        currentAudio.addEventListener('ended',()=>{
+        	seekbar.value = 0;
+        	playbarBtn.src = "assets/icons/playBarSongPlayButton.svg";
+        	document.getElementById("songInitialTiming").innerText = "--:--";
+		    document.getElementById("songDuration").innerText = "--:--";
+        });
+        // when the song ends
+
 		currentAudio.addEventListener('timeupdate',songTimeUpdateFunction)
-		loadCurrentSongToPlayBar();
 	}catch(error) {
 		console.log(error);
 	};
+	loadCurrentSongToPlayBar();
 };
 // time update function 
 function songTimeUpdateFunction(){
@@ -145,20 +172,15 @@ function songTimeUpdateFunction(){
 	document.getElementById("songInitialTiming").innerText = `${secondsToMinuteSeconds(currentAudio.currentTime)}`;
 	document.getElementById("songDuration").innerText = `${secondsToMinuteSeconds(currentAudio.duration)}`;
 	try{
-		document.querySelector('.circle').style.left = (currentAudio.currentTime/currentAudio.duration)*100 + "%";
+		seekbar.value = (currentAudio.currentTime / currentAudio.duration)*100;
 	}
 	catch(err){
 		console.log(err)
 	}
-	if (document.getElementById("songInitialTiming").innerText == `${secondsToMinuteSeconds(currentAudio.duration)}`) {
-		document.getElementById("songInitialTiming").innerText = "--:--";
-		document.getElementById("songDuration").innerText = "--:--";
-		document.querySelector('.circle').style.left = 0 + "%";
-	};
 };
 // time update function 
 
-// seconds to minute conversion
+// seconds to minute:seconds conversion function
 function secondsToMinuteSeconds(seconds){
 	if(isNaN(seconds) || seconds<0){
 		return "00:00";
@@ -171,12 +193,11 @@ function secondsToMinuteSeconds(seconds){
 
 	return `${formattedMinutes}:${formattedSeconds}`;
 }
-// seconds to minute conversion
+// seconds to minute:seconds conversion function
 function loadCurrentSongToPlayBar(){
-	let playBarLeftPortion = document.querySelector('.playBar-Left')
-	playBarLeftPortion.classList.add('appear')
+	let playBarLeftPortion = document.querySelector('.playBar-Left');
 	playBarLeftPortion.innerHTML = `
-	<div class="playBar-LeftContent flex flexDirectionColumn">
+	<div class="playBar-LeftContent appear flex flexDirectionColumn">
 	    <p id="currentTrackHead">Currently Playing</p>
         <div class="currentTrackInfo alighnCenter">
             <div class="currentTrackCover"><img src="${songs[currentSongIndex].song_cover}"></div>
@@ -195,7 +216,6 @@ function addAnimationsToCurrentTrack(){
 	if (currentTrackSongName.scrollWidth>parentCurrentTrackSongName.clientWidth) {
 		currentTrackSongName.classList.add('marqueeAnimation')
 	}
-	return;
 }
 // added animation to big words(no relation with async functions)
 async function main() {

@@ -74,32 +74,22 @@ body{
 .seekbarRequirements{
 	margin-bottom: 7px;
 }
-.seekbar{
-	position: relative;
-	width:520px;
-	height: 5px; 
-	background-color: gray; 
-	border-radius: 80px; 
-	margin: 0px 22px;
-	cursor: pointer;
-}
 #songInitialTiming,
 #songDuration{
 	color: #ccc;
 	font-weight: bolder;
 }
-.circle{
-	position: absolute;
-    left: 0%;
-    bottom: -7px;
-    height: 20px;
-    border-radius: 50%;
-    width: 20px;
-    background-color: white;
-    cursor: pointer;
-    transition: 0.5s;
+/*1db964*/
+input[type="range"]{
+    width: 520px;
+    height: 5px;
+    margin: 0px 22px;
+    border-radius: 80px;
+    background: #ccc;
+    outline: none;
 }
-/*seekbar*/
+
+/*seekbar
 
 /*playbar designs*/
 /*left bottom song listing designs*/

@@ -59,7 +59,7 @@
 			</div>
 			<div class="playlistDesign-songCardContainer flex">
 				<!-- js block -->
-				<!-- <div class="card flexDirectionColumn">
+				<div class="card flexDirectionColumn">
 					<img class="coverImage" src="assets/songCovers/cover.png">
 					<button class="appearingPlayBtn completeCenter"><img src="assets/icons/cardPlayButton.svg"></button>
 					<div class="cardSongName">
@@ -72,7 +72,7 @@
 					<button class="appearingPlayBtn completeCenter"><img src="assets/icons/cardPlayButton.svg"></button>
 					<h2 class="cardSongName">Happy Hits!</h2>
 					<p>Hits to boost your mood and fill you with happiness!</p>
-				</div> -->
+				</div>
 				<!-- js block -->
 			</div>
 		</div>
@@ -92,11 +92,9 @@
 			    <img id="nextSongId" src="assets/icons/nextsong.svg">
 	        </div>
 	        <div class="seekbarRequirements alighnCenter">
-	        	<p id="songInitialTiming">--:--</p>
-	        	<div class="seekbar">
-	        		<div class="circle"></div>
-	        	</div>
-	        	<p id="songDuration">--:--</p>
+	        	<p id="songInitialTiming" style="cursor: pointer;">--:--</p>
+	        	<input id="seekbar" type="range" style="cursor:pointer" name="">
+	        	<p id="songDuration" style="cursor: pointer;">--:--</p>
 	        </div>
 	    </div>
 		<div class="playBar-Right"></div>
