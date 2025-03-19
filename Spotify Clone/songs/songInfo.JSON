@@ -30,6 +30,12 @@
     "url":"http://localhost:3000/songs/O-Re-Piya-Aaja-Nachle.mp3"
   },
   {
+    "Song_name":"California Love",
+    "Artist":"Cheema Y",
+    "song_cover":"http://localhost:3000/assets/songCovers/californialoveCover.png",
+    "url":"http://localhost:3000/songs/California_Love_Cheema_Y.mp3"
+  },
+  {
     "Song_name":"Peg Di Waashna",
     "Artist":"Amrit Maan",
     "song_cover":"http://localhost:3000/assets/songCovers/pegdiwaashnaCover.png",

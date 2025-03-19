@@ -9,6 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bodyLayout.css">
 	<link rel="stylesheet" type="text/css" href="css/basicDesign.css">
 	<link rel="stylesheet" type="text/css" href="css/imageStyles.css">
+	<link rel="stylesheet" type="text/css" href="css/responsive.css">
 	<title>Spotify - Web Player: Music for everyone</title>
 </head>
 <body>
@@ -48,8 +49,8 @@
 				<i class='bx bx-chevron-right' style='color:#ffffff'></i>
 			</div>
 			<div class="rightTop-rightContent">
-				<button class="signUpBtn">Sign up</button>
-				<button class="logInBtn">Log in</button>
+				<button onclick="location.href = `signUpPage.html` " class="signUpBtn">Sign up</button>
+				<button onclick = "location.href = `loginPage.html` " class="logInBtn">Log in</button>
 			</div>
 		</div>
 		<div class="rightBottom borderRadius">
@@ -97,7 +98,15 @@
 	        	<p id="songDuration" style="cursor: pointer;">--:--</p>
 	        </div>
 	    </div>
-		<div class="playBar-Right"></div>
+		<div class="playBar-Right">
+			<div class="playbarRight-volumeBox alighnCenter">
+				<div class="volumeIcon completeCenter">
+					<img style="cursor:pointer;" src="assets/icons/volumeOn.svg">
+				</div>
+				<input id="seekVolume" type="range" name="">
+				<p id="volumePercentage">00%</p>
+			</div>
+		</div>
 	</div>
 </main>
 </body>

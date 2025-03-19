@@ -1,0 +1,188 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+::-webkit-scrollbar{
+	background-color: rgba(41, 42, 46, 0.6);
+	border-radius: 80px;
+	margin: 0px auto;
+	width: 8px;
+}
+::-webkit-scrollbar-thumb{
+	width: 2px;
+	border-radius: 10px;
+	height: 10px;
+	background-color: rgba(76, 77, 84);
+}
+a{
+	font-weight: 700;
+	color: white;
+}
+a:hover,.inputs>a:hover{
+	color: #1fdf64;
+}
+body{
+	color: white;
+	font-family: "poppins";
+	height: 145vh;
+	background-color: #121212;
+}
+img,p,a,button{
+	caret-color: transparent;
+}
+.container{
+	gap: 7px;
+	width: 315px;
+}
+.appLogo{
+	margin-bottom: 30px;
+	height: 45px;
+	width: 45px;
+	object-fit: contain;
+	caret-color: transparent;
+}
+h1{
+	margin-bottom: 40px;
+	text-align: center;
+	caret-color: transparent;
+	font-size: 2.4rem;
+}
+.inputs{
+	width: 100%;
+}
+.inputs > p{
+	font-weight: 600;
+	font-size: 13px;
+}
+#emailInput{
+	margin:8px 0px 12px 0px;
+	color: white;
+	font-weight: 600;
+	border:none;
+	font-size: 18px;
+	box-shadow:0px 0px 0px 1px #7c7c7c;
+	outline: none;
+	width: 100%;
+	border-radius: 3px;
+	padding: 15px 15px 15px 14px;
+	background-color: transparent;
+	transition: all 0.2s;
+}
+#emailInput:hover{
+	box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 1.0);
+}
+#emailInput:focus{
+	box-shadow: inset 0px 0px 0px 2px rgba(255, 255, 255, 1.0);
+}
+#emailInput::placeholder{
+	font-size: 14px;
+}
+.inputs>a{
+	color: white;
+	font-size: 12px;
+}
+#nextBtn{
+	background-color: #1fdf64;
+	font-weight: 700;
+	font-size: 1.0em;
+	width: 100%;
+	padding: 15px 0px;
+	margin-top: 20px;
+	outline: none;
+	border:none;
+	border-radius: 30px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+#nextBtn:hover{
+	background-color: #47f587;
+	transform: scale(1.03);
+}
+.googleLogin,
+.facebookLogin,
+.appleLogin{
+	gap: 20px;
+	font-size: 0.86em;
+    font-weight: 800;
+    width: 100%;
+    padding: 13px 20px;
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    outline: none;
+    border: 1px solid gray;
+    background-color: transparent;
+    border-radius: 80px;
+}
+.googleLogo,
+.facebookLogo,
+.appleLogo{
+	height: 22px;
+	width: 22px;
+	object-fit: contain;
+}
+.googleLogo{
+	margin-right: 25px;
+}
+.facebookLogo{
+	margin-right: 10px;
+}
+.appleLogo{
+	margin-right: 25px;
+}
+#loginText{
+	margin-bottom: 20px;
+	font-size: 0.9rem;
+	color: #b3b3b3;
+}
+#loginText>a{
+	margin-left: 2px;
+}
+#loginText>a:hover{
+	color: #1fdf64;
+}
+#footerText{
+	font-weight: 300;
+	margin-bottom: 20px;
+	color: rgba(255, 255, 255, 0.8);
+	text-align: center;
+	font-size: 11px;
+}
+#footerText>a{
+	color: rgba(255, 255, 255, 0.8);
+}
+
+/*both partition line designs*/
+.firstPartition{
+	margin: 18px 0px;
+	height: 50px;
+	position: relative;
+	width: 100%;
+}
+.orMid{
+	font-size: 12px;
+    text-align: center;
+    position: absolute;
+    top: 15px;
+    right: 45%;
+    height: 30px;
+    width: 30px;
+    background-color: #121212;
+}
+.firstPartition::before,
+.secondPartition::before{
+	content: '';
+	height: 1px;
+	width: 100%;
+}
+.firstPartition::before{
+	background-color: #818181;
+}
+.secondPartition{
+	height: 50px;
+	width: 100%;
+}
+.secondPartition::before{
+	background-color: rgba(255, 255, 255, 0.1);
+}
+/*both partition line designs*/

@@ -47,9 +47,10 @@ body{
 	}
 }
 #currentTrackHead{
-	font-weight: bolder;
-	color: rgba(204, 204, 204, 0.8);
-	font-size: 0.66rem;
+	font-weight: 800;
+    color: rgba(204, 204, 204, 0.8);
+    font-size: 0.72rem;
+    text-transform: uppercase;
 }
 #currentTrackSongName{
 	white-space: nowrap;
@@ -80,18 +81,53 @@ body{
 	font-weight: bolder;
 }
 /*1db964*/
-input[type="range"]{
+#seekbar{
     width: 520px;
     height: 5px;
     margin: 0px 22px;
     border-radius: 80px;
-    background: #ccc;
     outline: none;
 }
+/*seekbar*/
 
-/*seekbar
+/*playbar right*/
+.playBar-Right{
+	position: absolute;
+	right: 55px;
+}
 
-/*playbar designs*/
+.volumeIcon{
+	position: relative;
+	left: -10px;
+}
+.volumeIcon>img{
+	padding: 4px;
+	border-radius: 9px;
+	transition:background-color 0.3s;
+}
+.volumeIcon>img:hover{
+	background-color: #292828;
+}
+#seekVolume{
+	position: relative;
+	right: 2px;
+	height: 4px;
+	width: 100px;
+	cursor: pointer;
+	border-radius: 90px;
+	outline: none;
+}
+#volumePercentage{
+	width: 40px;
+	position: relative;
+	right:-10px;
+	font-weight: bolder;
+	font-size: 0.89em;
+	color: #ccc;
+}
+/*playbar right*/
+
+/*playbar designs
 /*left bottom song listing designs*/
 
 .leftBottom-libraryContent{
@@ -123,10 +159,10 @@ input[type="range"]{
 }
 #songName>span{
 	white-space: nowrap;
-	font-size: 21px;
+	font-size: 1.4em;
 }
 #artistName>span{
-	font-size: 11px;
+	font-size: 0.68em;
 	color: #ccc;
 }
 .marqueeAnimation{
@@ -214,17 +250,17 @@ input[type="range"]{
 /*right bottom*/
 /*song cover hovering play icon design*/
 .appearingPlayBtn{
-	position: absolute;
-	right: 17px;
-	bottom: 95px;
-	opacity: 0;
-	border: none;
-	height: 45px;
-	width: 45px;
-	border-radius: 400px;
-	cursor: pointer;
-	background-color: #1fdf64;
-	transition: all 0.3s cubic-bezier(0, 1.13, 1, 1);
+    position: absolute;
+    right: 15px;
+    bottom: 82px;
+    opacity: 0;
+    border: none;
+    height: 45px;
+    width: 45px;
+    border-radius: 400px;
+    cursor: pointer;
+    background-color: #1fdf64;
+    transition: all 0.3s cubic-bezier(0, 1.13, 1, 1);
 }
 .appearingPlayBtn:hover{
 	box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.9);

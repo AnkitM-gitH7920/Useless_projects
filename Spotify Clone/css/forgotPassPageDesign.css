@@ -1,0 +1,96 @@
+*{
+	padding: 0;
+	margin:0;
+	box-sizing: border-box;
+}
+body{
+	font-family: "poppins";
+	height: 100vh;
+	background-color: #121212;
+	color: white;
+}
+.container{
+	width: 320px;
+}
+.appLogo{
+	height: 41px;
+	width: 41px;
+	object-fit: contain;
+	margin-bottom: 30px;
+}
+h1{
+	letter-spacing: 1px;
+	font-size: 1.7rem;
+}
+.detail{
+	margin: 14px 0px;
+	font-size: 0.9rem;
+}
+.inputs>p{
+	font-size: 13px;
+	font-weight: 600;
+}
+#emailInput{
+	margin:8px 0px 12px 0px;
+	color: white;
+	font-weight: 600;
+	border:none;
+	font-size: 18px;
+	box-shadow:0px 0px 0px 1px #7c7c7c;
+	outline: none;
+	width: 100%;
+	border-radius: 3px;
+	padding: 15px 15px 15px 14px;
+	background-color: transparent;
+	transition: all 0.2s;
+}
+#emailInput:hover{
+	box-shadow:inset 0px 0px 0px 1px rgba(255, 255, 255, 0.9);
+}
+#emailInput:focus{
+	box-shadow:inset 0px 0px 0px 2px rgba(255, 255, 255, 0.9);
+}
+.inputs>a{
+	color: white;
+	font-size: 0.8rem;
+	font-weight: 500;
+	margin: 15px 0px;
+}
+.inputs>a:hover{
+	color: #1fdf64;
+}
+#nextBtn{
+	margin-bottom: 160px;
+	background-color: #1fdf64;
+	font-weight: 700;
+	font-size: 1.0em;
+	width: 100%;
+	padding: 15px 0px;
+	margin-top: 20px;
+	outline: none;
+	border:none;
+	border-radius: 30px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+#nextBtn:hover{
+	background-color: #47f587;
+	transform: scale(1.03);
+}
+footer{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding: 10px 20px;
+}
+#footerText{
+	width: 290px;
+	font-weight: 300;
+	margin-bottom: 20px;
+	color: rgba(255, 255, 255, 0.8);
+	text-align: center;
+	font-size: 11px;
+}
+#footerText>a{
+	color: rgba(255, 255, 255, 0.8);
+}

@@ -60,6 +60,17 @@
 	width: 49px;
 	transition: all 0.3s;
 }
+#prevSongId,
+#nextSongId{
+	padding: 4px;
+	border-radius: 7px;
+	transition: 0.3s;
+}
+#prevSongId:hover,
+#nextSongId:hover{
+	transform: scale(1.1);
+	background-color: #292828;
+}
 #playSongId:hover{
 	transform: scale(1.06);
 }

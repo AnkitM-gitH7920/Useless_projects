@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="assets/icons/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="css/utilityClasses.css">
+	<link rel="stylesheet" type="text/css" href="css/signUpPageDesign.css">
+	<title>Sign up - Spotify</title>
+</head>
+<body class="completeCenter">
+<div class="container flexDirectionColumn alighnCenter">
+	<div class="head flexDirectionColumn alighnCenter">
+		<img class ="appLogo" src="logIn-SignUp-PageAssets/spotifyLogo.png" alt="Loading">
+	    <h1>Sign up to start listening</h1>
+	</div>
+	<div class="inputs flexDirectionColumn ">
+		<p>Email address</p>
+		<input id="emailInput" type="email" name="" placeholder="name@domain.com">
+		<a href="#">Use phone number instead.</a>
+	</div>
+	<button id="nextBtn">Next</button>
+	<div class="firstPartition alighnCenter">
+		<p class="orMid">or</p>
+	</div>
+	<button class="googleLogin locater alighnCenter" onclick = "location.href = `https://accounts.google.com/o/oauth2/auth/oauthchooseaccount?access_type=offline&client_id=480305620559-pc5v3cng90a4snv4v7o712eahdemv1ag.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Faccounts.kaleido.ai%2Fusers%2Fauth%2Fgoogle_oauth2%2Fcallback&response_type=code&scope=email%20profile&state=2c87d63c42020d4803045afdbaccb4d3204fb74a4ad2aeff&service=lso&o2v=1&ddm=1&flowName=GeneralOAuthFlow`">
+		<img class="logo googleLogo" src="logIn-SignUp-PageAssets\googleLogo.png">Sign up with Google
+	</button>
+	<button class="facebookLogin locater alighnCenter" onclick = "location.href = `https://www.facebook.com/login.php?skip_api_login=1&api_key=174829003346&kid_directed_site=0&app_id=174829003346&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fv17.0%2Fdialog%2Foauth%3Fclient_id%3D174829003346%26state%3DAQDSRsnC19BuMN0IP6ON489CASGOb1QuyMUy4Rlv36OwVNVfi%252FywPH0%252FjeUERemKzx1WsDiwxmjSn9HQlziQJCtwYZHbFJ3tglW6EAWu22ylMLrDARfCZf5glMdodq2vQyzkrFdmGfBcXDPRSHaeFvuFMdPElaOdjM9UyqeSJqqEScprr3pRfwje1xJkvPhS86uypTQV5Q7NZJf3CzHxc8M1GwtKMVVSApuXu%252F%252FFzV9mLohu4w4XQIyGNzdv6UHScImCmTCTuiZf48gQVjy1TFftldIvsIKhpGcrv%252FXK57VR6950CMavVxevfrbFl8L1fjPJGw2BZE8%252BeJaEga8ehrqVJrRb3A%253D%253D%26redirect_uri%3Dhttps%253A%252F%252Faccounts.spotify.com%252Flogin%252Ffacebook%252Fredirect%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D888fc0a9-3776-4c8e-8956-11720f122ac1%26tp%3Dunspecified&cancel_url=https%3A%2F%2Faccounts.spotify.com%2Flogin%2Ffacebook%2Fredirect%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3DAQDSRsnC19BuMN0IP6ON489CASGOb1QuyMUy4Rlv36OwVNVfi%252FywPH0%252FjeUERemKzx1WsDiwxmjSn9HQlziQJCtwYZHbFJ3tglW6EAWu22ylMLrDARfCZf5glMdodq2vQyzkrFdmGfBcXDPRSHaeFvuFMdPElaOdjM9UyqeSJqqEScprr3pRfwje1xJkvPhS86uypTQV5Q7NZJf3CzHxc8M1GwtKMVVSApuXu%252F%252FFzV9mLohu4w4XQIyGNzdv6UHScImCmTCTuiZf48gQVjy1TFftldIvsIKhpGcrv%252FXK57VR6950CMavVxevfrbFl8L1fjPJGw2BZE8%252BeJaEga8ehrqVJrRb3A%253D%253D%23_%3D_&display=page&locale=en_GB&pl_dbl=0` ">
+		<img class="logo facebookLogo" src="logIn-SignUp-PageAssets\facebookLogo.png">Sign up with Facebook
+	</button>
+	<button class="appleLogin locater alighnCenter" onclick = "location.href = `https://appleid.apple.com/auth/authorize?response_type=code&response_mode=form_post&client_id=com.spotify.accounts&state=AQCD7%2BXxFTDj1q6VNsj%2Fyx6LN8ChdWsuR2UPIiOo9R8RRqOjPA6%2B2WynnloKGlIfOuQHp0n14GMaIM9%2Bsm91euXUwr4AWeg8fdCeXzmcC4XRnjCm5r%2FfINu1t%2FXjIcAkXBsXBWlYSRrTc3DuP06fooKu8XTTHpJ6GBPi1uHzagWjv1yNPAA6tVE5t%2BJOomDEUs%2BYYth%2FFSXqC9CvoVia%2FerTmSmfUBVrEimDSZ%2BXXx3RpnUu%2BBL%2FT4cyqnwIOn5ZPL4U3GeTsVmas9HaSXNywdURMAnz8WMqGJBfhzq1AZERvS1KBJmD3CBE5iSnzmCxsEypEqlInxqCJbi84vYxoGO32Ci%2FPA%3D%3D&scope=name+email&redirect_uri=https%3A%2F%2Faccounts.spotify.com%2Flogin%2Fapple%2Fredirect` ">
+		<img class="logo appleLogo" src="logIn-SignUp-PageAssets\appleLogo.png">Sign up with Apple
+	</button>
+	<div class="secondPartition completeCenter"></div>
+	<p id="loginText">Already have an account? 	<a href="loginPage.html">Log in here.</a></p>
+	<p id="footerText">This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy.</a> and <a href="https://policies.google.com/terms">Terms of Services</a> apply.</p>
+</div>
+</body>
+</html>
