@@ -45,7 +45,9 @@ div{
 	overflow-x: hidden;
 	margin-bottom: 65px;
 }
-
+.leftBottomHeading{
+	position: relative;
+}
 /*right content*/
 /*right top content*/
 .rightTop,
@@ -90,7 +92,7 @@ div{
 .playlistDesign-songCardContainer{
 	flex-wrap: wrap;
 	gap: 30px;
-	padding: 20px 75px 110px 73px;
+    padding: 30px 6px 110px 30px;
 }
 .card{
 	position: relative;
@@ -118,10 +120,18 @@ div{
 	min-width: 100%;
 }
 .card>p{
-	margin: 0px 10px 5px 10px;
+	width: 88%;
+	overflow-y: auto;
+	overflow-x: hidden;
+	word-wrap: break-word;
+    margin: 0px 10px 5px 10px;
     color: #ccc;
     margin-bottom: 7px;
     font-size: 0.7rem;
+}
+.card>p::-webkit-scrollbar{
+	width: 3px;
+	background-color: rgba(41, 42, 46, 0.6);
 }
 /*song cover design*/
 

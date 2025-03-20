@@ -11,6 +11,18 @@
 .searchClass{
 	 margin: 0px 10px;
 }
+#createLibrary{
+	position: absolute;
+    right: 0;
+    object-fit: contain;
+    height: 25px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+}
+#createLibrary:hover{
+	background-color: rgba(255, 255, 255, 0.3);
+}
 
 /*left bottom images*/
 .leftBottomHeading>img{

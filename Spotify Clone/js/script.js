@@ -246,9 +246,8 @@ function addAnimationsToCurrentTrack(){
 	}
 }
 // added animation to big words(no relation with async functions)
-async function main() {
+(async function main(){
 	await getSongs();
 	await displayToLibraries();
 	await songPlayingFunction();
-}
-main();
+})()
